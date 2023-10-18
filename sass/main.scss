@@ -1,0 +1,6 @@
+@use 'colors' as *;
+@use 'reset' as *;
+
+body {
+    background-color: $bg-color;
+}
