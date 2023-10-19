@@ -9,6 +9,34 @@ html {
   scroll-behavior: smooth;
 }
 
+@keyframes hero-blinking-yellow {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes hero-blinking-green {
+  0% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 body {
   font-family: sans-serif;
 }
@@ -22,34 +50,53 @@ body {
 .nav {
   position: fixed;
   width: 100vw;
-  box-shadow: 0 2px 5px rgba(51, 51, 51, 0.2588235294);
-  background-color: #ccc;
+  background-color: #222;
+  border-bottom: 3px solid #FF6E00;
+  z-index: 100;
 }
 .nav__nav-items {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   height: 100%;
 }
 .nav__nav-items--link {
-  padding: 15px 20px;
-  font-size: 1.4rem;
+  position: relative;
+  padding: 12px 24px;
+  font-size: 1.2rem;
   font-weight: bold;
   text-transform: uppercase;
   text-decoration: none;
-  color: #333;
-  transition: background 0.3s, color 0.3s;
+  color: #ccc;
+  transition: background 1s, color 0.3s;
 }
 .nav__nav-items--link:hover {
-  background-color: #333;
-  color: #ccc;
+  background-color: #FF6E00;
+  transition: background 0.3s, color 0.3s;
 }
 
 .header {
+  position: relative;
   height: 70vh;
-  background-image: url(../img/hero-img-cosmos-1920.jpg);
+  background: linear-gradient(308deg, rgba(0, 0, 0, 0.2) 0%, rgba(255, 213, 122, 0.2) 100%), url(../img/hero-img-eleonora-1920.jpg);
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+}
+.header .header-blink {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+}
+.header .yellow {
+  background: linear-gradient(308deg, rgba(255, 255, 255, 0) 0%, rgba(255, 213, 122, 0.1) 100%);
+  animation: hero-blinking-yellow 5s infinite ease-in-out 1s alternate;
+}
+.header .green {
+  background: linear-gradient(270deg, rgba(15, 89, 64, 0.3) 0%, rgba(255, 255, 255, 0) 100%);
+  animation: hero-blinking-green 4s infinite ease-in-out 1s alternate;
 }
 .header__content {
   display: flex;
@@ -58,7 +105,6 @@ body {
   flex-direction: column;
   width: 100%;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.2901960784);
 }
 .header__content--title {
   font-size: 6rem;
@@ -79,7 +125,9 @@ body {
   align-items: flex-start;
   justify-content: center;
   height: 100vh;
-  scroll-margin-top: 45px;
+  scroll-margin-top: 35px;
+  border-top: 4px solid #FF6E00;
+  background-color: #222;
 }
 .main .section__heading {
   margin-top: 20px;
@@ -112,14 +160,6 @@ body {
 }
 .faq__item_content--hidden {
   display: none;
-}
-
-.section-odd {
-  background-color: #ccc;
-}
-
-.section-even {
-  background-color: #333;
 }
 
 .footer {
