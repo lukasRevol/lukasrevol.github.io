@@ -6,8 +6,96 @@
 
 html {
   font-size: 62.5%;
+  scroll-behavior: smooth;
 }
 
 body {
+  font-family: sans-serif;
+}
+
+.wrapper {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.nav {
+  position: fixed;
+  width: 100vw;
+  box-shadow: 0 2px 5px rgba(51, 51, 51, 0.2588235294);
+  background-color: #ccc;
+}
+.nav__nav-items {
+  display: flex;
+  justify-content: flex-start;
+  height: 100%;
+}
+.nav__nav-items--link {
+  padding: 15px 20px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #333;
+  transition: background 0.3s, color 0.3s;
+}
+.nav__nav-items--link:hover {
   background-color: #333;
+  color: #ccc;
+}
+
+.header {
+  height: 70vh;
+  background-image: url(../img/hero-img-cosmos-1920.jpg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+.header__content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.2901960784);
+}
+.header__content--title {
+  font-size: 6rem;
+  color: #fff;
+  text-transform: uppercase;
+}
+.header__content--description {
+  text-align: center;
+  font-size: 2rem;
+  color: #fff;
+}
+
+.main {
+  margin: 0;
+}
+.main .section {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  height: 100vh;
+  scroll-margin-top: 45px;
+}
+.main .section__heading {
+  margin-top: 20px;
+  font-size: 3rem;
+  color: #FF6E00;
+}
+
+.section-odd {
+  background-color: #ccc;
+}
+
+.section-even {
+  background-color: #333;
+}
+
+.footer {
+  height: 50vh;
+  background-color: #FF6E00;
 }/*# sourceMappingURL=main.css.map */
