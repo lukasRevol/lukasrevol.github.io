@@ -9,3 +9,7 @@ system rezerwacji z mozliwością wybrania nazwy drużyny i avatara drużyny. i/
 sekcja lub podstrona z minigierką. ukończenie gierki daje zniżkę na grę
 
 mały link w stopce do logowania się dla pracowników
+
+wymyślic nazwe dla escaperoom'u
+
+zaprojektować logo

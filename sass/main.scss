@@ -3,6 +3,7 @@
 //-------------------------------------
 @use 'colors' as *;
 @use 'reset' as *;
+@use 'key-frames' as *;
 
 body {
 	font-family: sans-serif;
@@ -23,27 +24,28 @@ body {
 .nav {
 	position: fixed;
 	width: 100vw;
-	box-shadow: 0 2px 5px $shadow-color;
-	background-color: $bg-color-light;
+	background-color: $bg-color-dark;
+	border-bottom: 3px solid $main-color;
+	z-index: 100;
 
 	&__nav-items {
 		display: flex;
-		justify-content: flex-start;
+		justify-content: center;
 		height: 100%;
 
 		&--link {
-			padding: 15px 20px;
-			font-size: 1.4rem;
+			position: relative;
+			padding: 12px 24px;
+			font-size: 1.2rem;
 			font-weight: bold;
 			text-transform: uppercase;
 			text-decoration: none;
-			color: $font-color-dark;
-
-			transition: background 0.3s, color 0.3s;
+			color: $font-color-light;
+			transition: background 1s, color 0.3s;
 
 			&:hover {
-				background-color: $bg-color-dark;
-				color: $font-color-light;
+				background-color: $main-color;
+				transition: background 0.3s, color 0.3s;
 			}
 		}
 	}
@@ -54,11 +56,31 @@ body {
 //-------------------------------------
 
 .header {
+	position: relative;
 	height: 70vh;
-	background-image: url(../img/hero-img-cosmos-1920.jpg);
+	background: linear-gradient(308deg, rgba(0, 0, 0, 0.2) 0%, rgba(255,213,122,0.2) 100%), url(../img/hero-img-eleonora-1920.jpg); 
 	background-size: cover;
 	background-position: center;
 	background-attachment: fixed;
+
+.header-blink {
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.yellow {
+	background: linear-gradient(308deg, rgba(255, 255, 255, 0) 0%, rgba(255, 213, 122, 0.1) 100%); 
+	animation: hero-blinking-yellow 5s infinite ease-in-out 1s alternate;
+}
+
+.green {
+	background: linear-gradient(270deg, rgba(15, 89, 64, 0.3) 0%, rgba(255, 255, 255, 0) 100%); 
+	animation: hero-blinking-green 4s infinite ease-in-out 1s alternate;
+}
 
 	&__content {
 		display: flex;
@@ -67,7 +89,6 @@ body {
 		flex-direction: column;
 		width: 100%;
 		height: 100%;
-		background-color: #ffffff4a; //nadałem na tą sekcje połprzeźroczyste tło by upewnić się że clasa "wrapper" działa poprawnie
 
 		&--title {
 			font-size: 6rem;
@@ -95,7 +116,10 @@ body {
 		align-items: flex-start;
 		justify-content: center;
 		height: 100vh; // wysokość wszystkich sekcji ustawiona na 100vh
-		scroll-margin-top: 45px; // gorny margines dla funkcji scroll by po wcisnięciu linku nawigacja nie zasłaniała tekstu
+		scroll-margin-top: 35px; // gorny margines dla funkcji scroll by po wcisnięciu linku nawigacja nie zasłaniała tekstu
+		// border-bottom: 2px solid $main-color;
+		border-top: 4px solid $main-color;
+		background-color: $bg-color-dark;
 
 		&__heading {
 			margin-top: 20px;
@@ -104,6 +128,7 @@ body {
 		}
 	}
 }
+
 //-------------------------------------
 // FAQ
 //-------------------------------------
@@ -120,13 +145,13 @@ body {
 		background-color: white;
 		margin-bottom: 10px;
 		display: flex;
-		align-items: center; 
+		align-items: center;
 
 		&_content {
-			flex: 1; 
+			flex: 1;
 			display: flex;
 			align-items: center;
-			justify-content: center; 
+			justify-content: center;
 
 			&--heading {
 				padding: 10px;
@@ -134,21 +159,12 @@ body {
 				background-color: white;
 			}
 
-			&--hidden { // klasa która będzie togglowana po kliknięciu w pytanie
+			&--hidden {
+				// klasa która będzie togglowana po kliknięciu w pytanie
 				display: none;
 			}
 		}
 	}
-}
-
-// -------- SECTION-ODD ----- nadaje każdej nieparzystej sekcji JASNY kolor tła
-.section-odd {
-	background-color: $bg-color-light;
-}
-
-// -------- SECTION-EVEN ---- nadaje każdej parzystej sekcji CIEMNY kolor tła
-.section-even {
-	background-color: $bg-color-dark;
 }
 
 //-------------------------------------
