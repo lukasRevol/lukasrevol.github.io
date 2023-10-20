@@ -51,7 +51,7 @@ body {
   position: fixed;
   width: 100vw;
   background-color: #222;
-  border-bottom: 3px solid #FF6E00;
+  border-bottom: 3px solid #ff6e00;
   z-index: 100;
 }
 .nav__nav-items {
@@ -70,7 +70,7 @@ body {
   transition: background 1s, color 0.3s;
 }
 .nav__nav-items--link:hover {
-  background-color: #FF6E00;
+  background-color: #ff6e00;
   transition: background 0.3s, color 0.3s;
 }
 
@@ -121,48 +121,51 @@ body {
   margin: 0;
 }
 .main .section {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
   height: 100vh;
   scroll-margin-top: 35px;
-  border-top: 4px solid #FF6E00;
+  border-top: 4px solid #ff6e00;
   background-color: #222;
 }
 .main .section__heading {
-  margin-top: 20px;
-  font-size: 3rem;
-  color: #FF6E00;
-}
-
-.faq_container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.faq__item {
-  width: 100%;
-  background-color: white;
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-}
-.faq__item_content {
-  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 20px;
+  font-size: 3rem;
+  color: #ff6e00;
 }
-.faq__item_content--heading {
+.main .section .faq__questions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 4rem;
+  gap: 5em;
+}
+.main .section .faq__questions--question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 3rem;
+  margin: 1rem;
+  width: 50%;
   padding: 10px;
-  color: red;
-  background-color: white;
+  background-color: #fff;
+  border: 1px solid #fff;
+  border-radius: 0.5em;
+  padding: 1em;
+  margin: 5px;
+  transition: background-color 0.3s;
+  cursor: pointer;
 }
-.faq__item_content--hidden {
-  display: none;
+.main .section .faq__questions--question .fa-solid {
+  margin-left: 10px;
+}
+.main .section .faq__questions--question:hover {
+  background-color: #e0e0e0;
 }
 
 .footer {
   height: 50vh;
-  background-color: #FF6E00;
+  background-color: #ff6e00;
 }/*# sourceMappingURL=main.css.map */

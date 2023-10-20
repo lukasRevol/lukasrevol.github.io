@@ -58,29 +58,42 @@ body {
 .header {
 	position: relative;
 	height: 70vh;
-	background: linear-gradient(308deg, rgba(0, 0, 0, 0.2) 0%, rgba(255,213,122,0.2) 100%), url(../img/hero-img-eleonora-1920.jpg); 
+	background: linear-gradient(
+			308deg,
+			rgba(0, 0, 0, 0.2) 0%,
+			rgba(255, 213, 122, 0.2) 100%
+		),
+		url(../img/hero-img-eleonora-1920.jpg);
 	background-size: cover;
 	background-position: center;
 	background-attachment: fixed;
 
-.header-blink {
-	position: absolute;
-	top: 0;
-	left: 0;
-	opacity: 0;
-	width: 100%;
-	height: 100%;
-}
+	.header-blink {
+		position: absolute;
+		top: 0;
+		left: 0;
+		opacity: 0;
+		width: 100%;
+		height: 100%;
+	}
 
-.yellow {
-	background: linear-gradient(308deg, rgba(255, 255, 255, 0) 0%, rgba(255, 213, 122, 0.1) 100%); 
-	animation: hero-blinking-yellow 5s infinite ease-in-out 1s alternate;
-}
+	.yellow {
+		background: linear-gradient(
+			308deg,
+			rgba(255, 255, 255, 0) 0%,
+			rgba(255, 213, 122, 0.1) 100%
+		);
+		animation: hero-blinking-yellow 5s infinite ease-in-out 1s alternate;
+	}
 
-.green {
-	background: linear-gradient(270deg, rgba(15, 89, 64, 0.3) 0%, rgba(255, 255, 255, 0) 100%); 
-	animation: hero-blinking-green 4s infinite ease-in-out 1s alternate;
-}
+	.green {
+		background: linear-gradient(
+			270deg,
+			rgba(15, 89, 64, 0.3) 0%,
+			rgba(255, 255, 255, 0) 100%
+		);
+		animation: hero-blinking-green 4s infinite ease-in-out 1s alternate;
+	}
 
 	&__content {
 		display: flex;
@@ -109,63 +122,66 @@ body {
 //-------------------------------------
 
 .main {
-	margin: 0; // dodałem cokolwiek by ostrzeżenie o pustej klasie się nie wyświetlało
+	margin: 0;
 
 	.section {
-		display: flex;
-		align-items: flex-start;
-		justify-content: center;
-		height: 100vh; // wysokość wszystkich sekcji ustawiona na 100vh
-		scroll-margin-top: 35px; // gorny margines dla funkcji scroll by po wcisnięciu linku nawigacja nie zasłaniała tekstu
-		// border-bottom: 2px solid $main-color;
+		height: 100vh;
+		scroll-margin-top: 35px;
 		border-top: 4px solid $main-color;
 		background-color: $bg-color-dark;
 
 		&__heading {
+			display: flex;
+			align-items: center; // Zmiana na align-items: center, aby wyśrodkować zawartość sekcji
+			justify-content: center;
 			margin-top: 20px;
 			font-size: 3rem;
 			color: $main-color;
 		}
+
+		// FAQ
+.faq {
+    &__questions {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        margin-top: 4rem;
+        gap: 5em;
+
+        &--question {
+            display: flex;
+            justify-content: space-between; 
+            align-items: center;
+            font-size: 3rem;
+            margin: 1rem;
+            width: 50%;
+            padding: 10px;
+            background-color: $pure-white;
+            border: 1px solid $pure-white;
+            border-radius: 0.5em;
+            padding: 1em;
+            margin: 5px;
+            transition: background-color 0.3s;
+            cursor: pointer;
+
+            .fa-solid {
+                margin-left: 10px; 
+            }
+        }
+
+        &--question:hover {
+            background-color: $darker-white;
+        }
+    }
+}
+
 	}
 }
 
 //-------------------------------------
 // FAQ
 //-------------------------------------
-
-.faq {
-	&_container {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-	}
-
-	&__item {
-		width: 100%;
-		background-color: white;
-		margin-bottom: 10px;
-		display: flex;
-		align-items: center;
-
-		&_content {
-			flex: 1;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-
-			&--heading {
-				padding: 10px;
-				color: red;
-				background-color: white;
-			}
-
-			&--hidden {
-				// klasa która będzie togglowana po kliknięciu w pytanie
-				display: none;
-			}
-		}
-	}
-}
 
 //-------------------------------------
 // FOOTER
