@@ -1,33 +1,48 @@
 @keyframes hero-blinking-yellow {
-    0% {
-        opacity: 0;
-    }
+	0% {
+		opacity: 0;
+	}
 
-    30% {
-        opacity: 1;
-    }
-    40% {
-        opacity: 0;
-    }
+	30% {
+		opacity: 1;
+	}
+	40% {
+		opacity: 0;
+	}
 
-    100% {
-        opacity: 1;
-    }
+	100% {
+		opacity: 1;
+	}
 }
 
 @keyframes hero-blinking-green {
-    0% {
-        opacity: 0;
-    }
+	0% {
+		opacity: 0;
+	}
 
-    60% {
-        opacity: 1;
-    }
-    80% {
-        opacity: 0;
-    }
+	60% {
+		opacity: 1;
+	}
+	80% {
+		opacity: 0;
+	}
 
-    100% {
-        opacity: 1;
-    }
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes showAnswer {
+	0% {
+		opacity: 0;
+		max-height: 0;
+	}
+	50% {
+		opacity: 0.5;
+		max-height: 150px;
+	}
+	100% {
+		opacity: 1;
+		max-height: 300px;
+	}
 }
