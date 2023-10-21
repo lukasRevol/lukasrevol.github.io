@@ -154,10 +154,7 @@ body {
 
 				&--answer {
 					color: $pure-white;
-					display: block;
-					&.active {
-						display: none;
-					}
+					display: none;
 				}
 
 				&--question {
