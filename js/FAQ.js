@@ -1,8 +1,9 @@
 const questions = document.querySelectorAll('.faq__questions--question');
+const answers = document.querySelectorAll('.faq__questions--answer');
 
-questions.forEach((question) => {
+questions.forEach((question, index) => {
 	question.addEventListener('click', () => {
-        console.log(`hi`);
-		question.classList.toggle('active');
+		console.log(`hi`);
+		answers[index].classList.toggle('active');
 	});
 });
