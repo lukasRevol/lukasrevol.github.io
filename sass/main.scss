@@ -139,49 +139,52 @@ body {
 			color: $main-color;
 		}
 
+		//-------------------------------------
 		// FAQ
-.faq {
-    &__questions {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        margin-top: 4rem;
-        gap: 5em;
+		//-------------------------------------
 
-        &--question {
-            display: flex;
-            justify-content: space-between; 
-            align-items: center;
-            font-size: 3rem;
-            margin: 1rem;
-            width: 50%;
-            padding: 10px;
-            background-color: $pure-white;
-            border: 1px solid $pure-white;
-            border-radius: 0.5em;
-            padding: 1em;
-            margin: 5px;
-            transition: background-color 0.3s;
-            cursor: pointer;
+		.faq {
+			&__questions {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				flex-direction: column;
+				margin: 6rem;
+				gap: 1rem;
 
-            .fa-solid {
-                margin-left: 10px; 
-            }
-        }
+				&--answer {
+					color: $pure-white;
+					display: none;
+				}
 
-        &--question:hover {
-            background-color: $darker-white;
-        }
-    }
-}
+				&--question {
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+					font-size: 2rem;
+					margin: 1rem;
+					width: 50%;
+					padding: 10px;
+					background-color: $pure-white;
+					border: 1px solid $pure-white;
+					border-radius: 0.5em;
+					padding: 1em;
+					margin: 5px;
+					transition: background-color 0.3s;
+					cursor: pointer;
 
+					.fa-solid {
+						margin-left: 10px;
+					}
+				}
+
+				&--question:hover {
+					background-color: $darker-white;
+				}
+			}
+		}
 	}
 }
-
-//-------------------------------------
-// FAQ
-//-------------------------------------
 
 //-------------------------------------
 // FOOTER

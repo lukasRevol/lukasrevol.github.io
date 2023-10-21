@@ -139,14 +139,21 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin-top: 4rem;
-  gap: 5em;
+  margin: 6rem;
+  gap: 1rem;
+}
+.main .section .faq__questions--answer {
+  color: #fff;
+  display: block;
+}
+.main .section .faq__questions--answer.active {
+  display: none;
 }
 .main .section .faq__questions--question {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 3rem;
+  font-size: 2rem;
   margin: 1rem;
   width: 50%;
   padding: 10px;
