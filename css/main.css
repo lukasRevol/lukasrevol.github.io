@@ -135,32 +135,39 @@ body {
   margin: 0;
 }
 .main .section {
-  height: 100vh;
+  min-height: 100vh;
   scroll-margin-top: 35px;
   border-top: 4px solid #ff6e00;
   background-color: #222;
 }
 .main .section__heading {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   margin-top: 20px;
   font-size: 3rem;
   color: #ff6e00;
 }
-.main .section .faq__questions {
+.main .faq {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin: 6rem;
+}
+.main .faq__questions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  margin: 2rem 3em;
   gap: 1rem;
 }
-.main .section .faq__questions--answer {
+.main .faq__questions--answer {
   display: none;
   animation: showAnswer 0.5s ease-in;
 }
-.main .section .faq__questions--answer.active {
+.main .faq__questions--answer.active {
   color: #ff6e00;
   font-size: 1.5rem;
   margin: 1rem;
@@ -173,7 +180,7 @@ body {
   margin: 5px;
   display: block;
 }
-.main .section .faq__questions--question {
+.main .faq__questions--question {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -189,12 +196,12 @@ body {
   transition: background-color 0.3s;
   cursor: pointer;
 }
-.main .section .faq__questions--question .fa-solid {
+.main .faq__questions--question .fa-solid {
   margin-left: 10px;
   color: #ff6e00;
   transition: transform 0.3s ease;
 }
-.main .section .faq__questions--question:hover {
+.main .faq__questions--question:hover {
   background-color: #e0e0e0;
 }
 

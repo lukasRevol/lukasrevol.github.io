@@ -125,14 +125,15 @@ body {
 	margin: 0;
 
 	.section {
-		height: 100vh;
+		min-height: 100vh;
 		scroll-margin-top: 35px;
 		border-top: 4px solid $main-color;
 		background-color: $bg-color-dark;
 
 		&__heading {
 			display: flex;
-			align-items: center; // Zmiana na align-items: center, aby wyśrodkować zawartość sekcji
+			align-items: flex-start; // Zmiana na align-items: center, aby wyśrodkować zawartość sekcji
+
 			justify-content: center;
 			margin-top: 20px;
 			font-size: 3rem;
@@ -142,61 +143,67 @@ body {
 		//-------------------------------------
 		// FAQ
 		//-------------------------------------
+	}
 
-		.faq {
-			&__questions {
+	.faq {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+
+		&__questions {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-direction: column;
+			width: 100%;
+			margin: 2rem 3em;
+			gap: 1rem;
+
+			&--answer {
+				display: none;
+				animation: showAnswer 0.5s ease-in;
+			}
+
+			&--answer.active {
+				color: $main-color;
+				font-size: 1.5rem;
+				margin: 1rem;
+				width: 50%;
+				padding: 10px;
+				background-color: $pure-white;
+				border: 1px solid $pure-white;
+				border-radius: 0.5em;
+				padding: 1em;
+				margin: 5px;
+				display: block;
+			}
+
+			&--question {
 				display: flex;
+				justify-content: space-between;
 				align-items: center;
-				justify-content: center;
-				flex-direction: column;
-				margin: 6rem;
-				gap: 1rem;
+				font-size: 1.5rem;
+				margin: 1rem;
+				width: 50%;
+				padding: 10px;
+				background-color: $pure-white;
+				border: 1px solid $pure-white;
+				border-radius: 0.5em;
+				padding: 1em;
+				margin: 5px;
+				transition: background-color 0.3s;
+				cursor: pointer;
 
-				&--answer {
-					display: none;
-					animation: showAnswer 0.5s ease-in;
-				}
-
-				&--answer.active {
+				.fa-solid {
+					margin-left: 10px;
 					color: $main-color;
-					font-size: 1.5rem;
-					margin: 1rem;
-					width: 50%;
-					padding: 10px;
-					background-color: $pure-white;
-					border: 1px solid $pure-white;
-					border-radius: 0.5em;
-					padding: 1em;
-					margin: 5px;
-					display: block;
+					transition: transform 0.3s ease;
 				}
+			}
 
-				&--question {
-					display: flex;
-					justify-content: space-between;
-					align-items: center;
-					font-size: 1.5rem;
-					margin: 1rem;
-					width: 50%;
-					padding: 10px;
-					background-color: $pure-white;
-					border: 1px solid $pure-white;
-					border-radius: 0.5em;
-					padding: 1em;
-					margin: 5px;
-					transition: background-color 0.3s;
-					cursor: pointer;
-
-					.fa-solid {
-						margin-left: 10px;
-						color: $main-color;
-						transition: transform 0.3s ease;
-					}
-				}
-
-				&--question:hover {
-					background-color: $darker-white;
-				}
+			&--question:hover {
+				background-color: $darker-white;
 			}
 		}
 	}
