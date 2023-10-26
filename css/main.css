@@ -204,6 +204,20 @@ body {
 .main .faq__questions--question:hover {
   background-color: #e0e0e0;
 }
+.main .rooms__cards {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 20em;
+}
+.main .rooms__cards--card {
+  margin: 5em;
+  height: 300px;
+  width: 200px;
+  background-color: #fff;
+  border: 1px solid red;
+  cursor: pointer;
+}
 
 .footer {
   height: 50vh;

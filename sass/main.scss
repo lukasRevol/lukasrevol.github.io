@@ -206,6 +206,24 @@ body {
 			}
 		}
 	}
+	.rooms {
+		&__cards {
+			display: flex;
+			justify-content: space-between;
+			flex-wrap: wrap;
+			margin-top: 20em;
+			//trzeba poprawić section wtedy będzie lepiej wyśrodkowane, póki co zrobiłam to margin-top
+			&--card {
+				margin: 5em;
+				height: 300px;
+				width: 200px; // nie jestem pewna czy chiałeś to w px, ale chyba tak skoro jest flex-wrap
+				// tym się nie sugeruj, jak wstawimy obrazki to się dostosuje
+				background-color: $pure-white;
+				border: 1px solid red;
+				cursor: pointer;
+			}
+		}
+	}
 }
 
 //-------------------------------------
@@ -216,3 +234,4 @@ body {
 	height: 50vh; // domyslnie stopka będzie dostosowywać się do zawartości, chwilowo 50vh dla lepszej widoczności
 	background-color: $main-color; // dla lepszej widocznosci tymczasowo pomarańczowa
 }
+////// MEDIA //////
