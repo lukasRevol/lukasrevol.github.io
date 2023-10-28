@@ -124,7 +124,7 @@ body {
 .main {
 	// główne ustawienia dla każdej sekcji
 	.section {
-		padding: 10em 0; // odstęp od gornej i dolnej krawedzi kazdej sekcji tak by tresc nie dotykala gornej lub dolnej krawedzi
+		padding: 7em 0 10em 0; // odstęp od gornej i dolnej krawedzi kazdej sekcji tak by tresc nie dotykala gornej lub dolnej krawedzi
 		scroll-margin-top: 35px; 
 		border-top: 4px solid $main-color;
 		background-color: $bg-color-dark;
@@ -200,37 +200,39 @@ body {
 
 			// bem modifier dla obrazka amber
 			&--amber {
-				background-image: url('');
+				bottom: -70px;
+				scale: 1.2; 
 			}
 
 			// bem modifier dla obrazka eleonora
 			&--eleonora {
-				bottom: 0px;
-				scale: 0.9; 
+				bottom: 20px;
+				scale: 0.85; 
 			}
 
 			// bem modifier dla obrazka john
 			&--john {
-				bottom: -50px;
+				bottom: -60px;
 				scale: 1.2; 
 			}
 
 			// bem modifier dla obrazka kid
 			&--kid {
-				bottom: 0px;
-				scale: 1; 
+				left: -10px;
+				bottom: -100px;
+				scale: 1.2; 
 			}
 
 			// bem modifier dla obrazka priest
 			&--priest {
 				bottom: 0px;
-				scale: 1; 
+				scale: 1.1; 
 			}
 
 			// bem modifier dla obrazka mistress
 			&--mistress {
-				bottom: 0px;
-				scale: 1; 
+				bottom: 20px;
+				scale: 0.9; 
 			}
 		}
 		&:hover .card__front-image {

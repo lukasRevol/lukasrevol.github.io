@@ -17,14 +17,14 @@
 				<a class="nav__nav-items--link" href="#about-us">About us</a>
 				<a class="nav__nav-items--link" href="#rooms">Rooms</a>
 				<a class="nav__nav-items--link" href="#schools">For Schools</a>
-				<a class="nav__nav-items--link" href="#grups">For grups</a>
+				<a class="nav__nav-items--link" href="#groups">For grups</a>
 				<a class="nav__nav-items--link" href="#prices">Prices</a>
 				<a class="nav__nav-items--link" href="#faq">FAQ</a>
 				<a class="nav__nav-items--link" href="#contact">Kontakt</a>
 			</div>
 		</nav>
 		<!-- ---------- HEADER / HERO IMAGE ------------- -->
-		<!-- <header class="header">
+		<header class="header">
 			<div class="header__content wrapper">
 				<h1 class="header__content--title">Escaperoom</h1>
 				<p class="header__content--description">
@@ -34,58 +34,84 @@
 			</div>
 			<div class="header-blink yellow"></div>
 			<div class="header-blink green"></div>
-		</header> -->
+		</header>
 		<!-- --- MAIN SECTION - CONTAINS ALL SECTIONS --- -->
 		<main class="main">
 			<!-- "ABOUT US" SECTION --------------------- -->
-			<!-- <section class="section about-us" id="about-us">
+			<section class="section" id="about-us">
 				<h2 class="section__heading">about us</h2>
-			</section> -->
+				<div class="about-us wrapper"></div>
+			</section>
 
 			<!-- "ROOMS" SECTION ------------------------ -->
 			<section class="section" id="rooms">
 				<h2 class="section__heading">rooms</h2>
-				<div class="rooms wrapper"> <!-- pojemnikiem na zawartość sekcji "ROOMS" tutaj znajduje się wszystko z wyjątkiem naglowka całej sekcji. Pojemnik ten ograniczony też wrapperem -->
+				<div class="rooms wrapper">
+					<!-- pojemnikiem na zawartość sekcji "ROOMS" tutaj znajduje się wszystko z wyjątkiem naglowka całej sekcji. Pojemnik ten ograniczony też wrapperem -->
 					<div class="rooms__container">
 						<div class="rooms__container__cards">
 							<div class="card">
 								<div class="card__bg-image card__bg-image--amber"></div>
-								<img class="card__front-image card__front-image--amber" src="" alt="">
+								<img
+									class="card__front-image card__front-image--amber"
+									src="./img/rooms_cards/amber/card-character-v1.png"
+									alt=""
+								/>
 								<h3 class="card__heading">Amber room</h3>
 							</div>
 						</div>
 						<div class="rooms__container__cards">
 							<div class="card">
 								<div class="card__bg-image card__bg-image--eleonora"></div>
-								<img class="card__front-image card__front-image--eleonora" src="./img/rooms_cards/eleonora/card-character-v2.png" alt="">
+								<img
+									class="card__front-image card__front-image--eleonora"
+									src="./img/rooms_cards/eleonora/card-character-v2.png"
+									alt=""
+								/>
 								<h3 class="card__heading">Eleonora's workshop</h3>
 							</div>
 						</div>
 						<div class="rooms__container__cards">
 							<div class="card">
 								<div class="card__bg-image card__bg-image--john"></div>
-								<img class="card__front-image card__front-image--john" src="./img/rooms_cards/john/card-character-v1.png" alt="">
+								<img
+									class="card__front-image card__front-image--john"
+									src="./img/rooms_cards/john/card-character-v1.png"
+									alt=""
+								/>
 								<h3 class="card__heading">John Monroe office</h3>
 							</div>
 						</div>
 						<div class="rooms__container__cards">
 							<div class="card">
 								<div class="card__bg-image card__bg-image--kid"></div>
-								<img class="card__front-image card__front-image--kid" src="" alt="">
+								<img
+									class="card__front-image card__front-image--kid"
+									src="./img/rooms_cards/kid/card-character-v1.png"
+									alt=""
+								/>
 								<h3 class="card__heading">Lost child room</h3>
 							</div>
 						</div>
 						<div class="rooms__container__cards">
 							<div class="card">
 								<div class="card__bg-image card__bg-image--priest"></div>
-								<img class="card__front-image card__front-image--priest" src="" alt="">
+								<img
+									class="card__front-image card__front-image--priest"
+									src="./img/rooms_cards/exorcism/card-character-v1.png"
+									alt=""
+								/>
 								<h3 class="card__heading">The exorcism</h3>
 							</div>
 						</div>
 						<div class="rooms__container__cards">
 							<div class="card">
 								<div class="card__bg-image card__bg-image--mistress"></div>
-								<img class="card__front-image card__front-image--mistress" src="" alt="">
+								<img
+									class="card__front-image card__front-image--mistress"
+									src="./img/rooms_cards/mistress/card-character-v1.png"
+									alt=""
+								/>
 								<h3 class="card__heading">the Mistress</h3>
 							</div>
 						</div>
@@ -94,73 +120,77 @@
 			</section>
 
 			<!-- "OFFER FOR SCHOOLS" SECTION ------------ -->
-			<!-- <section class="section for-schools" id="schools">
-				<h2 class="section__heading">about us</h2>
-			</section> -->
+			<section class="section" id="schools">
+				<h2 class="section__heading">for schools</h2>
+				<div class="for-schools wrapper"></div>
+			</section>
 
 			<!-- "OFFER FOR BIGGER GRUPS" SECTION ------- -->
-			<!-- <section class="section for-grups" id="grups">
-				<h2 class="section__heading">for grups</h2>
-			</section> -->
+			<section class="section" id="groups">
+				<h2 class="section__heading">for groups</h2>
+				<div class="for-groups wrapper"></div>
+			</section>
 
 			<!-- "PRICING" SECTION ------ -->
-			<!-- <section class="section prices" id="prices">
+			<section class="section" id="prices">
 				<h2 class="section__heading">prices</h2>
-			</section> -->
+				<div class="prices wrapper"></div>
+			</section>
 
 			<!-- FAQ SECTION ------------ -->
 
-			<section class="section section-even faq" id="faq">
+			<section class="section section-even" id="faq">
 				<h2 class="section__heading">FAQ</h2>
+				<div class="faq wrapper">
+					<div class="faq__questions">
+						<div class="faq__questions--question">
+							<h3>Od jakiego wieku?</h3>
+							<i class="fa-solid fa-angles-down"></i>
+						</div>
+						<div class="faq__questions--answer">
+							<p>Lorem ipsum dolor sit amet.</p>
+						</div>
 
-				<div class="faq__questions">
-					<div class="faq__questions--question">
-						<h3>Od jakiego wieku?</h3>
-						<i class="fa-solid fa-angles-down"></i>
-					</div>
-					<div class="faq__questions--answer">
-						<p>Lorem ipsum dolor sit amet.</p>
-					</div>
+						<div class="faq__questions--question">
+							<h3>Dla ilu osób?</h3>
+							<i class="fa-solid fa-angles-down"></i>
+						</div>
+						<div class="faq__questions--answer">
+							<p>Lorem ipsum dolor sit amet.</p>
+						</div>
 
-					<div class="faq__questions--question">
-						<h3>Dla ilu osób?</h3>
-						<i class="fa-solid fa-angles-down"></i>
-					</div>
-					<div class="faq__questions--answer">
-						<p>Lorem ipsum dolor sit amet.</p>
-					</div>
+						<div class="faq__questions--question">
+							<h3>Czy mogę zapłacić kartą?</h3>
+							<i class="fa-solid fa-angles-down"></i>
+						</div>
+						<div class="faq__questions--answer">
+							<p>Lorem ipsum dolor sit amet.</p>
+						</div>
 
-					<div class="faq__questions--question">
-						<h3>Czy mogę zapłacić kartą?</h3>
-						<i class="fa-solid fa-angles-down"></i>
-					</div>
-					<div class="faq__questions--answer">
-						<p>Lorem ipsum dolor sit amet.</p>
-					</div>
+						<div class="faq__questions--question">
+							<h3>Jak poprosić o podpowiedź?</h3>
+							<i class="fa-solid fa-angles-down"></i>
+						</div>
+						<div class="faq__questions--answer">
+							<p>Lorem ipsum dolor sit amet.</p>
+						</div>
 
-					<div class="faq__questions--question">
-						<h3>Jak poprosić o podpowiedź?</h3>
-						<i class="fa-solid fa-angles-down"></i>
-					</div>
-					<div class="faq__questions--answer">
-						<p>Lorem ipsum dolor sit amet.</p>
-					</div>
-
-					<div class="faq__questions--question">
-						<h3>Straszne?</h3>
-						<i class="fa-solid fa-angles-down"></i>
-					</div>
-					<div class="faq__questions--answer">
-						<p>Lorem ipsum dolor sit amet.</p>
+						<div class="faq__questions--question">
+							<h3>Straszne?</h3>
+							<i class="fa-solid fa-angles-down"></i>
+						</div>
+						<div class="faq__questions--answer">
+							<p>Lorem ipsum dolor sit amet.</p>
+						</div>
 					</div>
 				</div>
 			</section>
 		</main>
 
 		<!-- FOOTER ------------------ -->
-		<!-- <footer class="footer" id="contact">
+		<footer class="footer" id="contact">
 			<h3 class="footer__heading"></h3>
-		</footer> -->
+		</footer>
 
 		<!-- LINKS TO JS SCRIPT ------ -->
 		<script src="./js/app.js"></script>
