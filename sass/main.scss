@@ -7,7 +7,6 @@
 
 body {
 	font-family: sans-serif;
-
 }
 
 //uniwersalna klasa którą można nadać na elementy by ograniczyć ich szerokość do max 1200px. Co zapobiega słabemu wyświetlaniu się zawartości na monitorach o wysokiej rozdzielczość i monitorach ultra wide
@@ -20,7 +19,6 @@ body {
 //-------------------------------------
 // NAVIGATION BAR
 //-------------------------------------
-
 
 .nav {
 	position: fixed;
@@ -122,71 +120,117 @@ body {
 // MAIN CONTENT OF THE WEBSITE
 //-------------------------------------
 
+//tutaj znajduje sie glowna zawartosc strony, wszystkie sekcje: pokoje, faq itd.
 .main {
-	margin: 0;
-
-
+	// główne ustawienia dla każdej sekcji
 	.section {
-		padding: 10em 0;
-		scroll-margin-top: 35px;
+		padding: 10em 0; // odstęp od gornej i dolnej krawedzi kazdej sekcji tak by tresc nie dotykala gornej lub dolnej krawedzi
+		scroll-margin-top: 35px; 
 		border-top: 4px solid $main-color;
 		background-color: $bg-color-dark;
 
 		&__heading {
+			// naglowek kazdej sekcji, byc moze w przyszlosci usuniemy i kazda sekcja bedzie miala swoj wlasny uniwersalny naglowek dostosowany do zawartosci sekcji
 			display: flex;
 			justify-content: center;
-			margin-bottom: 2em;
+			margin-bottom: 2em; // odsuwam dolna krawedz naglowka od dalszej zawartosci sekcji
 			font-size: 3rem;
 			text-transform: uppercase;
 			color: $main-color;
 		}
 	}
+
 	//-------------------------------------
 	// ROOMS
 	//-------------------------------------
-	.rooms {
 
-		&__cards {
+	// klasa przypisana do div'a, który jest pojemnikiem na zawartość sekcji "ROOMS" tutaj znajduje się wszystko z wyjątkiem naglowka całej sekcji.
+	.rooms {
+		&__container {
+			// GRID CONTAINER, pojemnik na calego grida
 			display: grid;
-			grid-template-columns: repeat(1, 300px);
-			place-content: center;
-			gap: 10em;
-			
-			&__container {
-				perspective: 900px;
-				width: 300px;
-				// aspect-ratio: 9 / 16;
-				// border: 1px solid red;
+			grid-template-columns: repeat(
+				1,
+				300px
+			); // ustawiam w grid jedną kolumne o szerokośći 300px, w media osobbne break pointy dla 2 i 3 kolumn
+			place-content: center; // wysrodkowuje calego grida
+			gap: 10em; // odstępy między komorkami grida
+
+			&__cards {
+				// GRIDD CELL, pojedyncza komórka grida
+				perspective: 900px; // nadaje perspektywe na kazdą z komórek by móc obracac dziećmi "__cards"
 				cursor: pointer;
 			}
 		}
 	}
 
+	// pojemnik wewnatrz komórki grida, tu znajduje sie osobno naglowek, tlo oraz postać
 	.card {
-		display: flex;
+		position: relative;
+		display: flex; //flex by ustawic odpowiednio naglowek oraz pozostale tresci takie jak poziom trudnosci itd.
 		align-items: flex-start;
 		justify-content: center;
-
-		position: relative;
-		width: 300px;
-		aspect-ratio: 9 / 16;
-
-		border-radius: 10px;
-		overflow: hidden;
-		
-		transition: .7s;
-
+		aspect-ratio: 9 / 16; // dodaje proporcje, kazda z komórek ma szerokość 300px, a wysokosc dostosowuje sie do nadanej proporcji
+		perspective: 900px; // nadaje ponownie perspektywe by moc obracac postacią, która jest dzieckiem ".card"
+		transition: transform 0.7s;
 		&:hover {
-			transform: rotateX(20deg);
+			transform: rotateX(20deg); // po najechaniu cala karta obraca sie o 20 stopni
 		}
 
 		&__heading {
-			text-align: center;
-			margin: 1em;
-			text-shadow: 0 5px 8px black;
 			position: relative;
+			margin: 1em;
+			font-size: 3rem;
+			text-align: center;
+			text-shadow: 0 5px 8px black;
 			color: #fff;
-			font-size: 4rem;
+		}
+
+		// obrazek który wyswietla się po najechaniu na carte
+		&__front-image {
+			position: absolute;
+			scale: 0.9; 
+			width: 100%;
+			height: 100%;
+			opacity: 0;
+			z-index: 10;
+			transform-origin: bottom; // przypinam do dolnej krawędzi obrazka zawias(w przenośni) i na tej osi się obraca
+			background-size: cover;
+			transition: opacity 0.7s, transform 0.7s;
+
+			// bem modifier dla obrazka amber
+			&--amber {
+				background-image: url('');
+			}
+
+			// bem modifier dla obrazka eleonora
+			&--eleonora {
+				background-image: url('/img/rooms_cards/eleonora/card-character-v2.png');
+			}
+
+			// bem modifier dla obrazka john
+			&--john {
+				background-image: url('');
+			}
+
+			// bem modifier dla obrazka kid
+			&--kid {
+				background-image: url('');
+			}
+
+			// bem modifier dla obrazka priest
+			&--priest {
+				background-image: url('');
+			}
+
+			// bem modifier dla obrazka mistress
+			&--mistress {
+				background-image: url('');
+			}
+		}
+		&:hover .card__front-image {
+			opacity: 1;
+			transform: translateY(0rem) translateZ(0px) rotateX(-20deg) scaleY(1.15);
 		}
 
 		&__bg-image {
@@ -195,40 +239,77 @@ body {
 			height: 100%;
 			background-image: url('/img/rooms_cards/eleonora/card-bg.png');
 			background-size: cover;
-			background-position: -450px;
+			background-position: -480px;
+
+			// bem modifier dla obrazka amber
+			&--amber {
+				background-image: url('');
+			}
+
+			// bem modifier dla obrazka eleonora
+			&--eleonora {
+				background-image: url('/img/rooms_cards/eleonora/card-bg.png');
+			}
+
+			// bem modifier dla obrazka john
+			&--john {
+				background-image: url('');
+			}
+
+			// bem modifier dla obrazka kid
+			&--kid {
+				background-image: url('');
+			}
+
+			// bem modifier dla obrazka priest
+			&--priest {
+				background-image: url('');
+			}
+
+			// bem modifier dla obrazka mistress
+			&--mistress {
+				background-image: url('');
+			}
+			
+
+			
 		}
 
-		&::after {
-			content: "";
-			position: absolute;
-			inset: 80% 0.5rem 0.5rem;
-			translate: 0;
-			transform: translateZ(-100px);
-			background: rgba(0, 0, 0, 0.519);
-			filter: blur(1.3rem);
-			z-index: -1;
-			transition: .7s;
-			border-radius: 20%;
-		  }
-
-		  &:hover::after {
-			rotate: x calc(20deg * -1);
-			translate: 0 60px;
-		  }
-
-		  &::before {
-			content: "";
+		// cien wewnętrzny na karcie 
+		&::before {
+			content: '';
 			position: absolute;
 			inset: 0;
-			z-index: 100;
-			background-image: radial-gradient(circle, transparent 150px, black);
+			z-index: 2;
+			background-image: radial-gradient(circle, transparent 0px, $bg-color-dark);
 			opacity: 0;
-			transition: opacity .7s;
-		  }
-		  
-		  &:hover::before {
+			transition: opacity 0.7s;
+		}
+
+		&:hover::before {
 			opacity: 1;
-		  }
+		}
+
+		// cien zewnętrzny pod kartą
+		&::after {
+			content: '';
+			position: absolute;
+			inset: 80% 1.5rem 4.5rem;
+			translate: 0;
+			transform: translateZ(100px);
+			background: rgba(0, 0, 0, 0.519);
+			filter: blur(1.6rem);
+			z-index: -10;
+			transition: rotate 0.7s;
+			border-radius: 20%;
+		}
+
+		&:hover::after {
+			rotate: x calc(20deg * -1);
+		}
+
+
+		
 	}
 
 	//-------------------------------------
@@ -298,8 +379,6 @@ body {
 	}
 }
 
-
-
 //-------------------------------------
 // FOOTER
 //-------------------------------------
@@ -309,14 +388,13 @@ body {
 	background-color: $main-color; // dla lepszej widocznosci tymczasowo pomarańczowa
 }
 
-
 //-------------------------------------
 // MEDIA
 //-------------------------------------
 
 @media (min-width: 768px) {
 	.main {
-		.rooms__cards {
+		.rooms__container {
 			grid-template-columns: repeat(2, 300px);
 		}
 	}
@@ -324,7 +402,7 @@ body {
 
 @media (min-width: 1201px) {
 	.main {
-		.rooms__cards {
+		.rooms__container {
 			grid-template-columns: repeat(3, 300px);
 		}
 	}

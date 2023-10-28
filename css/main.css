@@ -64,7 +64,7 @@ body {
 .nav {
   position: fixed;
   width: 100vw;
-  background-color: #222;
+  background-color: #0c0c11;
   border-bottom: 3px solid #ff6e00;
   z-index: 100;
 }
@@ -131,14 +131,11 @@ body {
   color: #fff;
 }
 
-.main {
-  margin: 0;
-}
 .main .section {
   padding: 10em 0;
   scroll-margin-top: 35px;
   border-top: 4px solid #ff6e00;
-  background-color: #222;
+  background-color: #0c0c11;
 }
 .main .section__heading {
   display: flex;
@@ -148,38 +145,68 @@ body {
   text-transform: uppercase;
   color: #ff6e00;
 }
-.main .rooms__cards {
+.main .rooms__container {
   display: grid;
   grid-template-columns: repeat(1, 300px);
   place-content: center;
   gap: 10em;
 }
-.main .rooms__cards__container {
+.main .rooms__container__cards {
   perspective: 900px;
-  width: 300px;
   cursor: pointer;
 }
 .main .card {
+  position: relative;
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  position: relative;
-  width: 300px;
   aspect-ratio: 9/16;
-  border-radius: 10px;
-  overflow: hidden;
-  transition: 0.7s;
+  perspective: 900px;
+  transition: transform 0.7s;
 }
 .main .card:hover {
   transform: rotateX(20deg);
 }
 .main .card__heading {
-  text-align: center;
-  margin: 1em;
-  text-shadow: 0 5px 8px black;
   position: relative;
+  margin: 1em;
+  font-size: 3rem;
+  text-align: center;
+  text-shadow: 0 5px 8px black;
   color: #fff;
-  font-size: 4rem;
+}
+.main .card__front-image {
+  position: absolute;
+  scale: 0.9;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 10;
+  transform-origin: bottom;
+  background-size: cover;
+  transition: opacity 0.7s, transform 0.7s;
+}
+.main .card__front-image--amber {
+  background-image: url("");
+}
+.main .card__front-image--eleonora {
+  background-image: url("/img/rooms_cards/eleonora/card-character-v2.png");
+}
+.main .card__front-image--john {
+  background-image: url("");
+}
+.main .card__front-image--kid {
+  background-image: url("");
+}
+.main .card__front-image--priest {
+  background-image: url("");
+}
+.main .card__front-image--mistress {
+  background-image: url("");
+}
+.main .card:hover .card__front-image {
+  opacity: 1;
+  transform: translateY(0rem) translateZ(0px) rotateX(-20deg) scaleY(1.15);
 }
 .main .card__bg-image {
   position: absolute;
@@ -187,35 +214,52 @@ body {
   height: 100%;
   background-image: url("/img/rooms_cards/eleonora/card-bg.png");
   background-size: cover;
-  background-position: -450px;
+  background-position: -480px;
 }
-.main .card::after {
-  content: "";
-  position: absolute;
-  inset: 80% 0.5rem 0.5rem;
-  translate: 0;
-  transform: translateZ(-100px);
-  background: rgba(0, 0, 0, 0.519);
-  filter: blur(1.3rem);
-  z-index: -1;
-  transition: 0.7s;
-  border-radius: 20%;
+.main .card__bg-image--amber {
+  background-image: url("");
 }
-.main .card:hover::after {
-  rotate: x -20deg;
-  translate: 0 60px;
+.main .card__bg-image--eleonora {
+  background-image: url("/img/rooms_cards/eleonora/card-bg.png");
+}
+.main .card__bg-image--john {
+  background-image: url("");
+}
+.main .card__bg-image--kid {
+  background-image: url("");
+}
+.main .card__bg-image--priest {
+  background-image: url("");
+}
+.main .card__bg-image--mistress {
+  background-image: url("");
 }
 .main .card::before {
   content: "";
   position: absolute;
   inset: 0;
-  z-index: 100;
-  background-image: radial-gradient(circle, transparent 150px, black);
+  z-index: 2;
+  background-image: radial-gradient(circle, transparent 0px, #0c0c11);
   opacity: 0;
   transition: opacity 0.7s;
 }
 .main .card:hover::before {
   opacity: 1;
+}
+.main .card::after {
+  content: "";
+  position: absolute;
+  inset: 80% 1.5rem 4.5rem;
+  translate: 0;
+  transform: translateZ(100px);
+  background: rgba(0, 0, 0, 0.519);
+  filter: blur(1.6rem);
+  z-index: -10;
+  transition: rotate 0.7s;
+  border-radius: 20%;
+}
+.main .card:hover::after {
+  rotate: x -20deg;
 }
 .main .faq {
   display: flex;
@@ -280,12 +324,12 @@ body {
 }
 
 @media (min-width: 768px) {
-  .main .rooms__cards {
+  .main .rooms__container {
     grid-template-columns: repeat(2, 300px);
   }
 }
 @media (min-width: 1201px) {
-  .main .rooms__cards {
+  .main .rooms__container {
     grid-template-columns: repeat(3, 300px);
   }
 }/*# sourceMappingURL=main.css.map */
