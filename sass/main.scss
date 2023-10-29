@@ -13,14 +13,13 @@ body {
 .wrapper {
 	margin: 0 auto;
 	width: 100%;
-	max-width: 1200px; // może zwiększyć do 1400px ?
+	max-width: 1400px;
 }
 
 //-------------------------------------
 // NAVIGATION BAR
 //-------------------------------------
 
-//podstawowa konfiguracja nawigacji. Używam BEM. Myślę, że w tym wypadku dość dobrze zastosowane
 .nav {
 	position: fixed;
 	width: 100vw;
@@ -121,29 +120,206 @@ body {
 // MAIN CONTENT OF THE WEBSITE
 //-------------------------------------
 
+//tutaj znajduje sie glowna zawartosc strony, wszystkie sekcje: pokoje, faq itd.
 .main {
-	margin: 0;
-
+	// główne ustawienia dla każdej sekcji
 	.section {
-		min-height: 100vh;
-		scroll-margin-top: 35px;
+		padding: 7em 0 10em 0; // odstęp od gornej i dolnej krawedzi kazdej sekcji tak by tresc nie dotykala gornej lub dolnej krawedzi
+		scroll-margin-top: 35px; 
 		border-top: 4px solid $main-color;
 		background-color: $bg-color-dark;
 
 		&__heading {
+			// naglowek kazdej sekcji, byc moze w przyszlosci usuniemy i kazda sekcja bedzie miala swoj wlasny uniwersalny naglowek dostosowany do zawartosci sekcji
 			display: flex;
-			align-items: flex-start; // Zmiana na align-items: center, aby wyśrodkować zawartość sekcji
-
 			justify-content: center;
-			margin-top: 20px;
+			margin-bottom: 2em; // odsuwam dolna krawedz naglowka od dalszej zawartosci sekcji
 			font-size: 3rem;
+			text-transform: uppercase;
 			color: $main-color;
 		}
-		//-------------------------------------
-		// FAQ
-		//-------------------------------------
 	}
 
+	//-------------------------------------
+	// ROOMS
+	//-------------------------------------
+
+	// klasa przypisana do div'a, który jest pojemnikiem na zawartość sekcji "ROOMS" tutaj znajduje się wszystko z wyjątkiem naglowka całej sekcji.
+	.rooms {
+		&__container {
+			// GRID CONTAINER, pojemnik na calego grida
+			display: grid;
+			grid-template-columns: repeat(
+				1,
+				300px
+			); // ustawiam w grid jedną kolumne o szerokośći 300px, w media osobbne break pointy dla 2 i 3 kolumn
+			place-content: center; // wysrodkowuje calego grida
+			gap: 10em; // odstępy między komorkami grida
+
+			&__cards {
+				// GRIDD CELL, pojedyncza komórka grida
+				perspective: 900px; // nadaje perspektywe na kazdą z komórek by móc obracac dziećmi "__cards"
+				cursor: pointer;
+			}
+		}
+	}
+
+	// pojemnik wewnatrz komórki grida, tu znajduje sie osobno naglowek, tlo oraz postać
+	.card {
+		position: relative;
+		display: flex; //flex by ustawic odpowiednio naglowek oraz pozostale tresci takie jak poziom trudnosci itd.
+		align-items: flex-start;
+		justify-content: center;
+		aspect-ratio: 9 / 16; // dodaje proporcje, kazda z komórek ma szerokość 300px, a wysokosc dostosowuje sie do nadanej proporcji
+		perspective: 900px; // nadaje ponownie perspektywe by moc obracac postacią, która jest dzieckiem ".card"
+		transition: transform 0.7s;
+		&:hover {
+			transform: rotateX(20deg); // po najechaniu cala karta obraca sie o 20 stopni
+		}
+
+		&__heading {
+			position: relative;
+			margin: 1em;
+			font-size: 3rem;
+			text-align: center;
+			text-shadow: 0 5px 8px black;
+			color: #fff;
+		}
+
+		// obrazek który wyswietla się po najechaniu na carte
+		&__front-image {
+			border: none;
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			opacity: 0;
+			z-index: 10;
+			object-fit: contain;
+			transform-origin: bottom; // przypinam do dolnej krawędzi obrazka zawias(w przenośni) i na tej osi się obraca
+			transition: opacity 0.7s, transform 0.7s;
+
+			// bem modifier dla obrazka amber
+			&--amber {
+				bottom: -70px;
+				scale: 1.2; 
+			}
+
+			// bem modifier dla obrazka eleonora
+			&--eleonora {
+				bottom: 20px;
+				scale: 0.85; 
+			}
+
+			// bem modifier dla obrazka john
+			&--john {
+				bottom: -60px;
+				scale: 1.2; 
+			}
+
+			// bem modifier dla obrazka kid
+			&--kid {
+				left: -10px;
+				bottom: -100px;
+				scale: 1.2; 
+			}
+
+			// bem modifier dla obrazka priest
+			&--priest {
+				bottom: 0px;
+				scale: 1.1; 
+			}
+
+			// bem modifier dla obrazka mistress
+			&--mistress {
+				bottom: 20px;
+				scale: 0.9; 
+			}
+		}
+		&:hover .card__front-image {
+			opacity: 1;
+			transform: translateY(0rem) translateZ(0px) rotateX(-20deg) scaleY(1.15);
+		}
+
+		&__bg-image {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background-size: cover;
+
+			// bem modifier dla obrazka amber
+			&--amber {
+				background-image: url('../img/rooms_cards/amber/card-bg-v1.jpg');
+			}
+
+			// bem modifier dla obrazka eleonora
+			&--eleonora {
+				background-image: url('../img/rooms_cards/eleonora/card-bg.png');
+			}
+
+			// bem modifier dla obrazka john
+			&--john {
+				background-image: url('../img/rooms_cards/john/card-bg-v1.jpg');
+			}
+
+			// bem modifier dla obrazka kid
+			&--kid {
+				background-image: url('../img/rooms_cards/kid/card-bg-v2.jpg');
+			}
+
+			// bem modifier dla obrazka priest
+			&--priest {
+				background-image: url('../img/rooms_cards/exorcism/card-bg-v2.jpg');
+			}
+
+			// bem modifier dla obrazka mistress
+			&--mistress {
+				background-image: url('../img/rooms_cards/mistress/card-bg-v2.jpg');
+			}
+			
+
+			
+		}
+
+		// cien wewnętrzny na karcie 
+		&::before {
+			content: '';
+			position: absolute;
+			inset: 0;
+			z-index: 2;
+			background-image: radial-gradient(circle, transparent 0px, $bg-color-dark);
+			opacity: 0;
+			transition: opacity 0.7s;
+		}
+
+		&:hover::before {
+			opacity: 1;
+		}
+
+		// cien zewnętrzny pod kartą
+		&::after {
+			content: '';
+			position: absolute;
+			inset: 80% 1.5rem 4.5rem;
+			translate: 0;
+			transform: translateZ(100px);
+			background: rgba(0, 0, 0, 0.519);
+			filter: blur(1.6rem);
+			z-index: -10;
+			transition: rotate 0.7s;
+			border-radius: 20%;
+		}
+
+		&:hover::after {
+			rotate: x calc(20deg * -1);
+		}
+
+
+		
+	}
+
+	//-------------------------------------
+	// FAQ
+	//-------------------------------------
 	.faq {
 		display: flex;
 		align-items: center;
@@ -206,24 +382,6 @@ body {
 			}
 		}
 	}
-	.rooms {
-		&__cards {
-			display: flex;
-			justify-content: space-between;
-			flex-wrap: wrap;
-			margin-top: 20em;
-			//trzeba poprawić section wtedy będzie lepiej wyśrodkowane, póki co zrobiłam to margin-top
-			&--card {
-				margin: 5em;
-				height: 300px;
-				width: 200px; // nie jestem pewna czy chiałeś to w px, ale chyba tak skoro jest flex-wrap
-				// tym się nie sugeruj, jak wstawimy obrazki to się dostosuje
-				background-color: $pure-white;
-				border: 1px solid red;
-				cursor: pointer;
-			}
-		}
-	}
 }
 
 //-------------------------------------
@@ -234,4 +392,23 @@ body {
 	height: 50vh; // domyslnie stopka będzie dostosowywać się do zawartości, chwilowo 50vh dla lepszej widoczności
 	background-color: $main-color; // dla lepszej widocznosci tymczasowo pomarańczowa
 }
-////// MEDIA //////
+
+//-------------------------------------
+// MEDIA
+//-------------------------------------
+
+@media (min-width: 768px) {
+	.main {
+		.rooms__container {
+			grid-template-columns: repeat(2, 300px);
+		}
+	}
+}
+
+@media (min-width: 1201px) {
+	.main {
+		.rooms__container {
+			grid-template-columns: repeat(3, 300px);
+		}
+	}
+}
