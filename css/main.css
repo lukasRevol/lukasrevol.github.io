@@ -51,8 +51,16 @@ html {
     max-height: 300px;
   }
 }
+@keyframes gradient-animation {
+  0% {
+    background-position: 100%;
+  }
+  100% {
+    background-position: 0;
+  }
+}
 body {
-  font-family: sans-serif;
+  font-family: "Comfortaa", sans-serif;
 }
 
 .wrapper {
@@ -64,28 +72,54 @@ body {
 .nav {
   position: fixed;
   width: 100vw;
-  background-color: #0c0c11;
-  border-bottom: 3px solid #ff6e00;
+  background-color: rgba(12, 12, 17, 0.6);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
   z-index: 100;
 }
-.nav__nav-items {
+.nav__nav {
   display: flex;
-  justify-content: center;
-  height: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav__nav-logo {
+  width: 200px;
+}
+.nav__nav-logo .logo-img {
+  width: 100%;
+  filter: invert(1);
 }
 .nav__nav-items--link {
   position: relative;
-  padding: 12px 24px;
-  font-size: 1.2rem;
-  font-weight: bold;
+  font-size: 1.4rem;
+  padding: 2em;
+  font-weight: 700;
   text-transform: uppercase;
   text-decoration: none;
-  color: #ccc;
-  transition: background 1s, color 0.3s;
+  background-image: linear-gradient(to right, #ff6e00, #ff6e00 50%, #fff 50%);
+  background-size: 200% 100%;
+  background-position: -100%;
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+  transition: all 0.3s ease-in-out;
+}
+.nav__nav-items--link:before {
+  content: "";
+  background: #ff6e00;
+  display: block;
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  transition: all 0.3s ease-in-out;
 }
 .nav__nav-items--link:hover {
-  background-color: #ff6e00;
-  transition: background 0.3s, color 0.3s;
+  background-position: 0;
+}
+.nav__nav-items--link:hover::before {
+  width: 100%;
 }
 
 .header {
@@ -323,6 +357,71 @@ body {
 .main .faq__questions--question:hover {
   background-color: #e0e0e0;
 }
+.main .prices {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main .prices__boxes {
+  display: grid;
+  place-items: center;
+  grid-template-columns: repeat(1, 300px);
+  gap: 50px;
+}
+.main .prices__boxes-box {
+  width: 100%;
+}
+.main .prices__boxes-box--top {
+  background-color: #fff;
+  padding: 2em;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  margin-bottom: 5px;
+}
+.main .prices__boxes-box--top .price-heading {
+  font-size: 2rem;
+  text-align: center;
+}
+.main .prices__boxes-box--middle {
+  background-color: #3d3d44;
+  padding: 0 3em;
+  color: #fff;
+  text-align: center;
+}
+.main .prices__boxes-box--middle .price-day {
+  font-size: 1.6rem;
+  padding: 1em 0;
+  text-decoration: underline;
+}
+.main .prices__boxes-box--middle .price-value {
+  font-size: 3rem;
+  padding-bottom: 1em;
+}
+.main .prices__boxes-box--bottom {
+  margin-top: 5px;
+}
+.main .prices__boxes-box--bottom .book-btn {
+  padding: 1em;
+  width: 100%;
+  height: 100%;
+  font-size: 2rem;
+  color: #fff;
+  text-transform: uppercase;
+  background-color: #ff6e00;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+.main .prices__boxes-box--bottom .book-btn p {
+  transition: 0.2s;
+}
+.main .prices__boxes-box--bottom .book-btn:hover {
+  background-color: #cf5a01;
+}
+.main .prices__boxes-box--bottom .book-btn:hover p {
+  scale: 1.1;
+}
 
 .footer {
   height: 50vh;
@@ -333,9 +432,15 @@ body {
   .main .rooms__container {
     grid-template-columns: repeat(2, 300px);
   }
+  .main .prices__boxes {
+    grid-template-columns: repeat(2, 300px);
+  }
 }
-@media (min-width: 1201px) {
+@media (min-width: 1200px) {
   .main .rooms__container {
     grid-template-columns: repeat(3, 300px);
+  }
+  .main .prices__boxes {
+    grid-template-columns: repeat(4, 230px);
   }
 }/*# sourceMappingURL=main.css.map */

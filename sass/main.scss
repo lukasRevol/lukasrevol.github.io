@@ -6,7 +6,7 @@
 @use 'key-frames' as *;
 
 body {
-	font-family: sans-serif;
+	font-family: 'Comfortaa', sans-serif;
 }
 
 //uniwersalna klasa którą można nadać na elementy by ograniczyć ich szerokość do max 1200px. Co zapobiega słabemu wyświetlaniu się zawartości na monitorach o wysokiej rozdzielczość i monitorach ultra wide
@@ -23,28 +23,56 @@ body {
 .nav {
 	position: fixed;
 	width: 100vw;
-	background-color: $bg-color-dark;
-	border-bottom: 3px solid $main-color;
+	background-color: rgba($color: $bg-color-dark, $alpha: 0.6);
+	backdrop-filter: blur(10px);
 	z-index: 100;
-
-	&__nav-items {
+	&__nav {
 		display: flex;
-		justify-content: center;
-		height: 100%;
-
-		&--link {
-			position: relative;
-			padding: 12px 24px;
-			font-size: 1.2rem;
-			font-weight: bold;
-			text-transform: uppercase;
-			text-decoration: none;
-			color: $font-color-light;
-			transition: background 1s, color 0.3s;
-
-			&:hover {
-				background-color: $main-color;
-				transition: background 0.3s, color 0.3s;
+		justify-content: space-between;
+		align-items: center;
+		&-logo {
+			width: 200px;
+			.logo-img {
+				width: 100%;
+				filter: invert(1);
+			}
+		}
+		&-items {
+			&--link {
+				position: relative;
+				font-size: 1.4rem;
+				padding: 2em;
+				font-weight: 700;
+				text-transform: uppercase;
+				text-decoration: none;
+				background-image: linear-gradient(
+					to right,
+					$main-color,
+					$main-color 50%,
+					$pure-white 50%
+				);
+				background-size: 200% 100%;
+				background-position: -100%;
+				background-clip: text;
+				color: transparent;
+				transition: all 0.3s ease-in-out;
+				&:before {
+					content: '';
+					background: $main-color;
+					display: block;
+					position: absolute;
+					bottom: 0px;
+					left: 0;
+					width: 0;
+					height: 3px;
+					transition: all 0.3s ease-in-out;
+				}
+				&:hover {
+					background-position: 0;
+				}
+				&:hover::before {
+					width: 100%;
+				}
 			}
 		}
 	}
@@ -125,7 +153,7 @@ body {
 	// główne ustawienia dla każdej sekcji
 	.section {
 		padding: 7em 0 10em 0; // odstęp od gornej i dolnej krawedzi kazdej sekcji tak by tresc nie dotykala gornej lub dolnej krawedzi
-		scroll-margin-top: 35px; 
+		scroll-margin-top: 35px;
 		border-top: 4px solid $main-color;
 		background-color: $bg-color-dark;
 
@@ -174,7 +202,9 @@ body {
 		perspective: 900px; // nadaje ponownie perspektywe by moc obracac postacią, która jest dzieckiem ".card"
 		transition: transform 0.7s;
 		&:hover {
-			transform: rotateX(20deg); // po najechaniu cala karta obraca sie o 20 stopni
+			transform: rotateX(
+				20deg
+			); // po najechaniu cala karta obraca sie o 20 stopni
 		}
 
 		&__heading {
@@ -201,38 +231,38 @@ body {
 			// bem modifier dla obrazka amber
 			&--amber {
 				bottom: -70px;
-				scale: 1.2; 
+				scale: 1.2;
 			}
 
 			// bem modifier dla obrazka eleonora
 			&--eleonora {
 				bottom: 20px;
-				scale: 0.85; 
+				scale: 0.85;
 			}
 
 			// bem modifier dla obrazka john
 			&--john {
 				bottom: -60px;
-				scale: 1.2; 
+				scale: 1.2;
 			}
 
 			// bem modifier dla obrazka kid
 			&--kid {
 				left: -10px;
 				bottom: -100px;
-				scale: 1.2; 
+				scale: 1.2;
 			}
 
 			// bem modifier dla obrazka priest
 			&--priest {
 				bottom: 0px;
-				scale: 1.1; 
+				scale: 1.1;
 			}
 
 			// bem modifier dla obrazka mistress
 			&--mistress {
 				bottom: 20px;
-				scale: 0.9; 
+				scale: 0.9;
 			}
 		}
 		&:hover .card__front-image {
@@ -275,18 +305,19 @@ body {
 			&--mistress {
 				background-image: url('../img/rooms_cards/mistress/card-bg-v2.jpg');
 			}
-			
-
-			
 		}
 
-		// cien wewnętrzny na karcie 
+		// cien wewnętrzny na karcie
 		&::before {
 			content: '';
 			position: absolute;
 			inset: 0;
 			z-index: 2;
-			background-image: radial-gradient(circle, transparent 0px, $bg-color-dark);
+			background-image: radial-gradient(
+				circle,
+				transparent 0px,
+				$bg-color-dark
+			);
 			opacity: 0;
 			transition: opacity 0.7s;
 		}
@@ -312,9 +343,6 @@ body {
 		&:hover::after {
 			rotate: x calc(20deg * -1);
 		}
-
-
-		
 	}
 
 	//-------------------------------------
@@ -382,6 +410,74 @@ body {
 			}
 		}
 	}
+	.prices {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		&__boxes {
+			display: grid;
+			place-items: center;
+			grid-template-columns: repeat(1, 300px);
+			gap: 50px;
+
+			&-box {
+				width: 100%;
+				&--top {
+					background-color: $pure-white;
+					padding: 2em;
+					border-top-right-radius: 5px;
+					border-top-left-radius: 5px;
+					margin-bottom: 5px;
+
+					.price-heading {
+						font-size: 2rem;
+						text-align: center;
+					}
+				}
+				&--middle {
+					background-color: $secondary-color;
+					padding: 0 3em;
+					color: #fff;
+					text-align: center;
+					.price-day {
+						font-size: 1.6rem;
+						padding: 1em 0;
+						text-decoration: underline;
+					}
+					.price-value {
+						font-size: 3rem;
+						padding-bottom: 1em;
+					}
+				}
+				&--bottom {
+					margin-top: 5px;
+					.book-btn {
+						padding: 1em;
+						width: 100%;
+						height: 100%;
+						font-size: 2rem;
+						color: #fff;
+						text-transform: uppercase;
+						background-color: $main-color;
+						border-bottom-right-radius: 5px;
+						border-bottom-left-radius: 5px;
+						border: none;
+						cursor: pointer;
+
+						p {
+							transition: 0.2s;
+						}
+						&:hover {
+							background-color: #cf5a01;
+						}
+						&:hover p {
+							scale: 1.1;
+						}
+					}
+				}
+			}
+		}
+	}
 }
 
 //-------------------------------------
@@ -402,13 +498,19 @@ body {
 		.rooms__container {
 			grid-template-columns: repeat(2, 300px);
 		}
+		.prices__boxes {
+			grid-template-columns: repeat(2, 300px);
+		}
 	}
 }
 
-@media (min-width: 1201px) {
+@media (min-width: 1200px) {
 	.main {
 		.rooms__container {
 			grid-template-columns: repeat(3, 300px);
+		}
+		.prices__boxes {
+			grid-template-columns: repeat(4, 230px);
 		}
 	}
 }
