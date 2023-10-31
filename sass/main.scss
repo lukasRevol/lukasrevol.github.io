@@ -428,11 +428,10 @@ body {
 					border-top-right-radius: 5px;
 					border-top-left-radius: 5px;
 					margin-bottom: 5px;
+
 					.price-heading {
 						font-size: 2rem;
 						text-align: center;
-						
-
 					}
 				}
 				&--middle {
@@ -440,7 +439,7 @@ body {
 					padding: 0 3em;
 					color: #fff;
 					text-align: center;
-					.price-day{
+					.price-day {
 						font-size: 1.6rem;
 						padding: 1em 0;
 						text-decoration: underline;
@@ -448,12 +447,11 @@ body {
 					.price-value {
 						font-size: 3rem;
 						padding-bottom: 1em;
-	
 					}
 				}
 				&--bottom {
 					margin-top: 5px;
-					.book-btn{
+					.book-btn {
 						padding: 1em;
 						width: 100%;
 						height: 100%;
@@ -465,14 +463,18 @@ body {
 						border-bottom-left-radius: 5px;
 						border: none;
 						cursor: pointer;
+
+						p {
+							transition: 0.2s;
+						}
 						&:hover {
 							background-color: #cf5a01;
 						}
+						&:hover p {
+							scale: 1.1;
+						}
 					}
 				}
-				
-				
-				
 			}
 		}
 	}

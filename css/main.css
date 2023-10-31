@@ -413,8 +413,14 @@ body {
   border: none;
   cursor: pointer;
 }
+.main .prices__boxes-box--bottom .book-btn p {
+  transition: 0.2s;
+}
 .main .prices__boxes-box--bottom .book-btn:hover {
   background-color: #cf5a01;
+}
+.main .prices__boxes-box--bottom .book-btn:hover p {
+  scale: 1.1;
 }
 
 .footer {
