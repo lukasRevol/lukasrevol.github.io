@@ -365,7 +365,7 @@ body {
 .main .prices__boxes {
   display: grid;
   place-items: center;
-  grid-template-columns: repeat(1, 230px);
+  grid-template-columns: repeat(1, 300px);
   gap: 50px;
 }
 .main .prices__boxes-box {
@@ -433,7 +433,7 @@ body {
     grid-template-columns: repeat(2, 300px);
   }
   .main .prices__boxes {
-    grid-template-columns: repeat(2, 230px);
+    grid-template-columns: repeat(2, 300px);
   }
 }
 @media (min-width: 1200px) {

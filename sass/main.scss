@@ -417,7 +417,7 @@ body {
 		&__boxes {
 			display: grid;
 			place-items: center;
-			grid-template-columns: repeat(1, 230px);
+			grid-template-columns: repeat(1, 300px);
 			gap: 50px;
 
 			&-box {
@@ -499,7 +499,7 @@ body {
 			grid-template-columns: repeat(2, 300px);
 		}
 		.prices__boxes {
-			grid-template-columns: repeat(2, 230px);
+			grid-template-columns: repeat(2, 300px);
 		}
 	}
 }
