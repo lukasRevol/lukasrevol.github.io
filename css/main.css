@@ -357,6 +357,65 @@ body {
 .main .faq__questions--question:hover {
   background-color: #e0e0e0;
 }
+.main .prices {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main .prices__boxes {
+  display: grid;
+  place-items: center;
+  grid-template-columns: repeat(1, 230px);
+  gap: 50px;
+}
+.main .prices__boxes-box {
+  width: 100%;
+}
+.main .prices__boxes-box--top {
+  background-color: #fff;
+  padding: 2em;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  margin-bottom: 5px;
+}
+.main .prices__boxes-box--top .price-heading {
+  font-size: 2rem;
+  text-align: center;
+}
+.main .prices__boxes-box--middle {
+  background-color: #3d3d44;
+  padding: 0 3em;
+  color: #fff;
+  text-align: center;
+}
+.main .prices__boxes-box--middle .price-day {
+  font-size: 1.6rem;
+  padding: 1em 0;
+  text-decoration: underline;
+}
+.main .prices__boxes-box--middle .price-value {
+  font-size: 3rem;
+  padding-bottom: 1em;
+}
+.main .prices__boxes-box--bottom {
+  margin-top: 5px;
+}
+.main .prices__boxes-box--bottom .book-btn {
+  padding: 1em;
+  width: 100%;
+  height: 100%;
+  font-size: 2rem;
+  color: #fff;
+  text-transform: uppercase;
+  background-color: #ff6e00;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+.main .prices__boxes-box--bottom .book-btn:hover {
+  background-color: #cf5a01;
+}
 
 .footer {
   height: 50vh;
@@ -367,9 +426,15 @@ body {
   .main .rooms__container {
     grid-template-columns: repeat(2, 300px);
   }
+  .main .prices__boxes {
+    grid-template-columns: repeat(2, 230px);
+  }
 }
-@media (min-width: 1201px) {
+@media (min-width: 1200px) {
   .main .rooms__container {
     grid-template-columns: repeat(3, 300px);
+  }
+  .main .prices__boxes {
+    grid-template-columns: repeat(4, 230px);
   }
 }/*# sourceMappingURL=main.css.map */
