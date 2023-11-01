@@ -7,6 +7,7 @@
 
 body {
 	font-family: 'Comfortaa', sans-serif;
+	scroll-behavior: smooth;
 }
 
 //uniwersalna klasa którą można nadać na elementy by ograniczyć ich szerokość do max 1200px. Co zapobiega słabemu wyświetlaniu się zawartości na monitorach o wysokiej rozdzielczość i monitorach ultra wide
@@ -15,7 +16,9 @@ body {
 	width: 100%;
 	max-width: 1400px;
 }
-
+.sticky-body {
+	overflow: hidden;
+}
 //-------------------------------------
 // NAVIGATION BAR
 //-------------------------------------
@@ -26,6 +29,7 @@ body {
 	background-color: rgba($color: $bg-color-dark, $alpha: 0.6);
 	backdrop-filter: blur(10px);
 	z-index: 100;
+
 	&__nav {
 		display: flex;
 		justify-content: space-between;
@@ -504,7 +508,7 @@ body {
 	}
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1201px) {
 	.main {
 		.rooms__container {
 			grid-template-columns: repeat(3, 300px);
@@ -513,4 +517,14 @@ body {
 			grid-template-columns: repeat(4, 230px);
 		}
 	}
+	.nav {
+		.nav-mobile {
+			display: none;
+		}
+		.hamburger {
+			display: none;
+		}
+	}
 }
+
+@import './mobile';
