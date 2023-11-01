@@ -25,10 +25,10 @@
 				</a>
 				<div class="nav__nav-items">
 					<a class="nav__nav-items--link" href="#rooms">Rooms</a>
-					<a class="nav__nav-items--link" href="#schools">For Schools</a>
-					<a class="nav__nav-items--link" href="#groups">For groups</a>
-					<a class="nav__nav-items--link" href="#prices">Prices</a>
+					<a class="nav__nav-items--link" href="#prices">Pricing</a>
+					<a class="nav__nav-items--link" href="#reservation">Reservation</a>
 					<a class="nav__nav-items--link" href="#faq">FAQ</a>
+					<a class="nav__nav-items--link" href="#about-us">About us</a>
 					<a class="nav__nav-items--link" href="#contact">Contact</a>
 				</div>
 			</div>
@@ -47,12 +47,6 @@
 		</header>
 		<!-- --- MAIN SECTION - CONTAINS ALL SECTIONS --- -->
 		<main class="main">
-			<!-- "ABOUT US" SECTION --------------------- -->
-			<section class="section" id="about-us">
-				<h2 class="section__heading">about us</h2>
-				<div class="about-us wrapper"></div>
-			</section>
-
 			<!-- "ROOMS" SECTION ------------------------ -->
 			<section class="section" id="rooms">
 				<h2 class="section__heading">rooms</h2>
@@ -68,6 +62,10 @@
 									alt=""
 								/>
 								<h3 class="card__heading">Amber room</h3>
+								<button class="card__btn card__btn--read">Read more</button>
+								<button class="card__btn card__btn--book">
+									book this room
+								</button>
 							</div>
 						</div>
 						<div class="rooms__container__cards">
@@ -79,6 +77,10 @@
 									alt=""
 								/>
 								<h3 class="card__heading">Eleonora's workshop</h3>
+								<button class="card__btn card__btn--read">Read more</button>
+								<button class="card__btn card__btn--book">
+									book this room
+								</button>
 							</div>
 						</div>
 						<div class="rooms__container__cards">
@@ -90,6 +92,10 @@
 									alt=""
 								/>
 								<h3 class="card__heading">John Monroe office</h3>
+								<button class="card__btn card__btn--read">Read more</button>
+								<button class="card__btn card__btn--book">
+									book this room
+								</button>
 							</div>
 						</div>
 						<div class="rooms__container__cards">
@@ -101,6 +107,10 @@
 									alt=""
 								/>
 								<h3 class="card__heading">Lost child room</h3>
+								<button class="card__btn card__btn--read">Read more</button>
+								<button class="card__btn card__btn--book">
+									book this room
+								</button>
 							</div>
 						</div>
 						<div class="rooms__container__cards">
@@ -112,6 +122,10 @@
 									alt=""
 								/>
 								<h3 class="card__heading">The exorcism</h3>
+								<button class="card__btn card__btn--read">Read more</button>
+								<button class="card__btn card__btn--book">
+									book this room
+								</button>
 							</div>
 						</div>
 						<div class="rooms__container__cards">
@@ -123,22 +137,14 @@
 									alt=""
 								/>
 								<h3 class="card__heading">the Mistress</h3>
+								<button class="card__btn card__btn--read">Read more</button>
+								<button class="card__btn card__btn--book">
+									book this room
+								</button>
 							</div>
 						</div>
 					</div>
 				</div>
-			</section>
-
-			<!-- "OFFER FOR SCHOOLS" SECTION ------------ -->
-			<section class="section" id="schools">
-				<h2 class="section__heading">for schools</h2>
-				<div class="for-schools wrapper"></div>
-			</section>
-
-			<!-- "OFFER FOR BIGGER GRUPS" SECTION ------- -->
-			<section class="section" id="groups">
-				<h2 class="section__heading">for groups</h2>
-				<div class="for-groups wrapper"></div>
 			</section>
 
 			<!-- "PRICING" SECTION ------ -->
@@ -213,7 +219,50 @@
 							</div>
 						</div>
 					</div>
+					<p class="prices__extra-info">
+						<span>ZMIANA LICZBY GRACZY</span> Przyjdzie więcej/mniej osób niż
+						wpisałeś/aś w formularzu? Nie szkodzi, poza ceną biletu nic się nie
+						zmieni i nie musisz nas o tym informować. Pamiętaj jednak, że w
+						przypadku rezerwacji opłaconej z góry (przelewem) nie zwrócimy
+						różnicy.
+					</p>
+					<hr />
 				</div>
+				<div class="discounts wrapper">
+					<div class="discounts__discount discounts__discount--one">
+						<div class="discounts__discount__icon">
+							<i class="fa-solid fa-children"></i>
+						</div>
+						<p>
+							<span>Karta dużej rodziny </span>Za okazaniem karty dużej rodziny
+							otrzymacie zniżkę <span>30 PLN</span>
+						</p>
+					</div>
+					<div class="discounts__discount prices__discounts__discount--two">
+						<div class="discounts__discount__icon">
+							<i class="fa-solid fa-children"></i>
+						</div>
+						<p>
+							<span>Karta dużej rodziny </span>Za okazaniem karty dużej rodziny
+							otrzymacie zniżkę <span>30 PLN</span>
+						</p>
+					</div>
+					<div class="discounts__discount prices__discounts__discount--three">
+						<div class="discounts__discount__icon">
+							<i class="fa-solid fa-children"></i>
+						</div>
+						<p>
+							<span>Karta dużej rodziny </span>Za okazaniem karty dużej rodziny
+							otrzymacie zniżkę <span>30 PLN</span>
+						</p>
+					</div>
+				</div>
+			</section>
+
+			<!-- "RESERVATION" SECTION --------------------- -->
+			<section class="section" id="reservation">
+				<h2 class="section__heading">Reservation</h2>
+				<div class="about-us wrapper"></div>
 			</section>
 
 			<!-- FAQ SECTION ------------ -->
@@ -263,6 +312,12 @@
 						</div>
 					</div>
 				</div>
+			</section>
+
+			<!-- "ABOUT US" SECTION --------------------- -->
+			<section class="section" id="about-us">
+				<h2 class="section__heading">about us</h2>
+				<div class="about-us wrapper"></div>
 			</section>
 		</main>
 

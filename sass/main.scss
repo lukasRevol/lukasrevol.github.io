@@ -12,6 +12,7 @@ body {
 //uniwersalna klasa którą można nadać na elementy by ograniczyć ich szerokość do max 1200px. Co zapobiega słabemu wyświetlaniu się zawartości na monitorach o wysokiej rozdzielczość i monitorach ultra wide
 .wrapper {
 	margin: 0 auto;
+	padding: 0 20px;
 	width: 100%;
 	max-width: 1400px;
 }
@@ -187,7 +188,6 @@ body {
 			&__cards {
 				// GRIDD CELL, pojedyncza komórka grida
 				perspective: 900px; // nadaje perspektywe na kazdą z komórek by móc obracac dziećmi "__cards"
-				cursor: pointer;
 			}
 		}
 	}
@@ -343,6 +343,44 @@ body {
 		&:hover::after {
 			rotate: x calc(20deg * -1);
 		}
+
+		&__btn {
+			opacity: 0;
+			position: absolute;
+			background-color: none;
+			// height: 40px;
+			padding: 15px 20px;
+			margin: 20px;
+			border: none;
+			border-radius: 3px;
+			z-index: 10;
+			cursor: pointer;
+			text-transform: capitalize;
+			font-size: 1.2rem;
+			font-family: 'Comfortaa', sans-serif;
+			font-weight: 700;
+			transition: background 0.3s, opacity 0.5s;
+
+			&--read {
+				bottom: 60px;
+				&:hover {
+					background-color: #a1a1a1;
+				}
+			}
+
+			&--book {
+				bottom: 0px;
+				background-color: $main-color;
+				color: #fff;
+				&:hover {
+					background-color: #cf5a01;
+				}
+			}
+		}
+
+		&:hover .card__btn {
+			opacity: 1;
+		}
 	}
 
 	//-------------------------------------
@@ -410,9 +448,11 @@ body {
 			}
 		}
 	}
+
 	.prices {
 		display: flex;
-		justify-content: center;
+		flex-direction: column;
+		// justify-content: center;
 		align-items: center;
 		&__boxes {
 			display: grid;
@@ -452,10 +492,10 @@ body {
 				&--bottom {
 					margin-top: 5px;
 					.book-btn {
-						padding: 1em;
+						padding: 1em 0;
 						width: 100%;
 						height: 100%;
-						font-size: 2rem;
+						font-size: 1.6rem;
 						color: #fff;
 						text-transform: uppercase;
 						background-color: $main-color;
@@ -465,7 +505,7 @@ body {
 						cursor: pointer;
 
 						p {
-							transition: 0.2s;
+							transition: background 0.2s, scale 0.2s;
 						}
 						&:hover {
 							background-color: #cf5a01;
@@ -476,6 +516,58 @@ body {
 					}
 				}
 			}
+		}
+
+		&__extra-info {
+			padding: 4em 2em;
+			color: #fff;
+			font-size: 1.6rem;
+			span {
+				color: $main-color;
+				font-weight: 700;
+			}
+		}
+
+		hr {
+			width: 100%;
+		}
+	}
+}
+
+.discounts {
+	margin-top: 4em;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: stretch;
+
+	&__discount {
+		display: flex;
+
+		align-items: center;
+		justify-content: center;
+		min-width: 300px;
+		flex-grow: 1;
+		padding: 2em;
+		color: #fff;
+		font-size: 1.6rem;
+		border: 1px solid red;
+
+		&__icon {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 50px;
+			aspect-ratio: 1/1;
+			background-color: $main-color;
+			border-radius: 50%;
+			i {
+				font-size: 4rem;
+			}
+		}
+
+		p {
+			margin-left: 2em;
 		}
 	}
 }
