@@ -517,6 +517,14 @@ body {
 			grid-template-columns: repeat(4, 230px);
 		}
 	}
+	.nav {
+		.nav-mobile {
+			display: none;
+		}
+		.hamburger {
+			display: none;
+		}
+	}
 }
 
 @import './mobile';

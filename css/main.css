@@ -448,6 +448,12 @@ body {
   .main .prices__boxes {
     grid-template-columns: repeat(4, 230px);
   }
+  .nav .nav-mobile {
+    display: none;
+  }
+  .nav .hamburger {
+    display: none;
+  }
 }
 @media (min-width: 375px) and (max-width: 1201px) {
   .nav {
