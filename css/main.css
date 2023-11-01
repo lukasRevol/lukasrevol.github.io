@@ -441,16 +441,12 @@ body {
     grid-template-columns: repeat(2, 300px);
   }
 }
-<<<<<<< HEAD
 @media (min-width: 1201px) {
-  .nav .nav-mobile {
-    display: none;
-  }
-  .nav .hamburger {
-    display: none;
-  }
   .main .rooms__container {
     grid-template-columns: repeat(3, 300px);
+  }
+  .main .prices__boxes {
+    grid-template-columns: repeat(4, 230px);
   }
 }
 @media (min-width: 375px) and (max-width: 1201px) {
@@ -550,13 +546,5 @@ body {
   .nav .nav__nav-items--link:hover::before,
   .nav .nav-mobile__nav-items--link:hover::before {
     width: 100%;
-=======
-@media (min-width: 1200px) {
-  .main .rooms__container {
-    grid-template-columns: repeat(3, 300px);
-  }
-  .main .prices__boxes {
-    grid-template-columns: repeat(4, 230px);
->>>>>>> main
   }
 }/*# sourceMappingURL=main.css.map */
