@@ -7,6 +7,7 @@
 
 body {
 	font-family: 'Comfortaa', sans-serif;
+	scroll-behavior: smooth;
 }
 
 //uniwersalna klasa którą można nadać na elementy by ograniczyć ich szerokość do max 1200px. Co zapobiega słabemu wyświetlaniu się zawartości na monitorach o wysokiej rozdzielczość i monitorach ultra wide
@@ -19,13 +20,29 @@ body {
 //-------------------------------------
 // NAVIGATION BAR
 //-------------------------------------
-
+.sticky-body {
+	overflow: hidden;
+}
 .nav {
 	position: fixed;
 	width: 100vw;
 	background-color: rgba($color: $bg-color-dark, $alpha: 0.6);
 	backdrop-filter: blur(10px);
 	z-index: 100;
+	.hamburger {
+		position: absolute;
+		top: 3em;
+		right: 1em;
+		z-index: 500;
+		transform: translateY(-50%);
+		&-inner,
+		&-inner::before,
+		&-inner::after {
+			background-color: $pure-white;
+			z-index: 500;
+		}
+	}
+
 	&__nav {
 		display: flex;
 		justify-content: space-between;
@@ -38,7 +55,6 @@ body {
 			}
 		}
 		&-items {
-
 			&--link {
 				position: relative;
 				font-size: 1.4rem;
@@ -425,6 +441,148 @@ body {
 //-------------------------------------
 // MEDIA
 //-------------------------------------
+@media (min-width: 375px) and (max-width: 12001) {
+	.nav {
+		position: absolute;
+		width: 50vw;
+		height: 100vh;
+		background-color: rgba($color: $bg-color-dark, $alpha: 0.6);
+		backdrop-filter: blur(10px);
+		z-index: 100;
+		.hamburger {
+			display: block;
+		}
+
+		&__nav {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			align-items: center;
+			&-logo {
+				display: none;
+			}
+			&-items {
+				&--link {
+					position: relative;
+					font-size: 1.4rem;
+					padding: 2em;
+					font-weight: 700;
+					text-transform: uppercase;
+					text-decoration: none;
+					background-image: linear-gradient(
+						to right,
+						$main-color,
+						$main-color 50%,
+						$pure-white 50%
+					);
+					background-size: 200% 100%;
+					background-position: -100%;
+					background-clip: text;
+					color: transparent;
+					transition: all 0.3s ease-in-out;
+					&:before {
+						content: '';
+						background: $main-color;
+						display: block;
+						position: absolute;
+						bottom: 0px;
+						left: 0;
+						width: 0;
+						height: 3px;
+						transition: all 0.3s ease-in-out;
+					}
+					&:hover {
+						background-position: 0;
+					}
+					&:hover::before {
+						width: 100%;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: 375px) and (max-width: 1201px) {
+	.nav {
+		position: fixed;
+		width: 100%;
+		height: 100vh;
+		background-color: rgba($color: $bg-color-dark, $alpha: 0.6);
+		backdrop-filter: blur(10px);
+		z-index: 100;
+
+		.hamburger {
+			display: block;
+			position: absolute;
+			top: 3em;
+			right: 1em;
+			z-index: 500;
+			transform: translateY(-50%);
+			&-inner,
+			&-inner::before,
+			&-inner::after {
+				background-color: $pure-white;
+				z-index: 500;
+			}
+		}
+
+		&__nav {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			height: 100%;
+			overflow: hidden;
+			&-logo {
+				display: none;
+			}
+			&-items {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				margin-top: 2em;
+				&--link {
+					position: relative;
+					font-size: 1.4rem;
+					padding: 2em;
+					font-weight: 700;
+					text-transform: uppercase;
+					text-decoration: none;
+					background-image: linear-gradient(
+						to right,
+						$main-color,
+						$main-color 50%,
+						$pure-white 50%
+					);
+					background-size: 200% 100%;
+					background-position: -100%;
+					background-clip: text;
+					color: transparent;
+					transition: all 0.3s ease-in-out;
+					&:before {
+						content: '';
+						background: $main-color;
+						display: block;
+						position: absolute;
+						bottom: 0px;
+						left: 0;
+						width: 0;
+						height: 3px;
+						transition: all 0.3s ease-in-out;
+					}
+					&:hover {
+						background-position: 0;
+					}
+					&:hover::before {
+						width: 100%;
+					}
+				}
+			}
+		}
+	}
+}
 
 @media (min-width: 768px) {
 	.main {
@@ -433,8 +591,12 @@ body {
 		}
 	}
 }
-
 @media (min-width: 1201px) {
+	.nav {
+		.hamburger {
+			display: none;
+		}
+	}
 	.main {
 		.rooms__container {
 			grid-template-columns: repeat(3, 300px);
