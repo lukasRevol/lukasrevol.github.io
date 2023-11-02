@@ -66,6 +66,7 @@ body {
 
 .wrapper {
   margin: 0 auto;
+  padding: 0 6em;
   width: 100%;
   max-width: 1400px;
 }
@@ -77,7 +78,7 @@ body {
 .nav {
   position: fixed;
   width: 100vw;
-  background-color: rgba(12, 12, 17, 0.6);
+  background-color: rgba(24, 24, 29, 0.6);
   -webkit-backdrop-filter: blur(10px);
           backdrop-filter: blur(10px);
   z-index: 100;
@@ -174,15 +175,23 @@ body {
   padding: 7em 0 10em 0;
   scroll-margin-top: 35px;
   border-top: 4px solid #ff6e00;
-  background-color: #0c0c11;
+  background-color: #18181d;
 }
 .main .section__heading {
   display: flex;
   justify-content: center;
+  margin: 0 2em;
   margin-bottom: 2em;
   font-size: 3rem;
   text-transform: uppercase;
   color: #ff6e00;
+}
+.main .section__heading--faq {
+  margin-bottom: 1em;
+}
+.main .section__heading--description {
+  font-size: 2.2rem;
+  color: #fff;
 }
 .main .rooms__container {
   display: grid;
@@ -192,7 +201,6 @@ body {
 }
 .main .rooms__container__cards {
   perspective: 900px;
-  cursor: pointer;
 }
 .main .card {
   position: relative;
@@ -284,7 +292,7 @@ body {
   position: absolute;
   inset: 0;
   z-index: 2;
-  background-image: radial-gradient(circle, transparent 0px, #0c0c11);
+  background-image: radial-gradient(circle, transparent 0px, #18181d);
   opacity: 0;
   transition: opacity 0.7s;
 }
@@ -306,65 +314,72 @@ body {
 .main .card:hover::after {
   rotate: x -20deg;
 }
+.main .card__btn {
+  opacity: 0;
+  position: absolute;
+  background-color: none;
+  padding: 15px 20px;
+  margin: 20px;
+  border: none;
+  border-radius: 3px;
+  z-index: 10;
+  cursor: pointer;
+  text-transform: capitalize;
+  font-size: 1.2rem;
+  font-family: "Comfortaa", sans-serif;
+  font-weight: 700;
+  transition: background 0.3s, opacity 0.5s;
+}
+.main .card__btn--read {
+  bottom: 60px;
+}
+.main .card__btn--read:hover {
+  background-color: #a1a1a1;
+}
+.main .card__btn--book {
+  bottom: 0px;
+  background-color: #ff6e00;
+  color: #fff;
+}
+.main .card__btn--book:hover {
+  background-color: #cf5a01;
+}
+.main .card:hover .card__btn {
+  opacity: 1;
+}
 .main .faq {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
-.main .faq__questions {
+.main .faq__thread {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-  width: 100%;
-  margin: 2rem 3em;
-  gap: 1rem;
-}
-.main .faq__questions--answer {
-  display: none;
-  animation: showAnswer 0.5s ease-in;
-}
-.main .faq__questions--answer.active {
-  color: #ff6e00;
-  font-size: 1.5rem;
-  margin: 1rem;
-  width: 50%;
-  padding: 10px;
-  background-color: #fff;
-  border: 1px solid #fff;
-  border-radius: 0.5em;
-  padding: 1em;
-  margin: 5px;
-  display: block;
-}
-.main .faq__questions--question {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 1.5rem;
-  margin: 1rem;
-  width: 50%;
-  padding: 10px;
-  background-color: #fff;
-  border: 1px solid #fff;
-  border-radius: 0.5em;
-  padding: 1em;
-  margin: 5px;
-  transition: background-color 0.3s;
+  padding: 2em;
+  margin: 1em;
+  width: 200px;
+  text-align: center;
+  color: #fff;
+  font-size: 2rem;
+  aspect-ratio: 1/1;
+  border: 1px solid #323237;
+  border-radius: 10px;
   cursor: pointer;
+  transition: background 0.3s, scale 1s;
 }
-.main .faq__questions--question .fa-solid {
-  margin-left: 10px;
+.main .faq__thread span {
   color: #ff6e00;
-  transition: transform 0.3s ease;
 }
-.main .faq__questions--question:hover {
-  background-color: #e0e0e0;
+.main .faq__thread:hover {
+  background-color: #323237;
+  scale: 1.1;
 }
 .main .prices {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
 }
 .main .prices__boxes {
@@ -388,8 +403,8 @@ body {
   text-align: center;
 }
 .main .prices__boxes-box--middle {
-  background-color: #3d3d44;
-  padding: 0 3em;
+  background-color: #323237;
+  padding: 3em 3em;
   color: #fff;
   text-align: center;
 }
@@ -399,17 +414,21 @@ body {
   text-decoration: underline;
 }
 .main .prices__boxes-box--middle .price-value {
-  font-size: 3rem;
+  font-size: 1.6rem;
   padding-bottom: 1em;
+}
+.main .prices__boxes-box--middle .price-value span {
+  font-size: 3rem;
+  color: #ff6e00;
 }
 .main .prices__boxes-box--bottom {
   margin-top: 5px;
 }
 .main .prices__boxes-box--bottom .book-btn {
-  padding: 1em;
+  padding: 1.4em 0;
   width: 100%;
   height: 100%;
-  font-size: 2rem;
+  font-size: 1.4rem;
   color: #fff;
   text-transform: uppercase;
   background-color: #ff6e00;
@@ -419,13 +438,69 @@ body {
   cursor: pointer;
 }
 .main .prices__boxes-box--bottom .book-btn p {
-  transition: 0.2s;
+  transition: background 0.3s, scale 0.3s;
+  font-family: "Comfortaa", sans-serif;
 }
 .main .prices__boxes-box--bottom .book-btn:hover {
   background-color: #cf5a01;
+  box-shadow: #111;
 }
 .main .prices__boxes-box--bottom .book-btn:hover p {
   scale: 1.1;
+}
+.main .prices__extra-info {
+  padding: 4em 0em;
+  color: #fff;
+  font-size: 1.6rem;
+}
+.main .prices__extra-info span {
+  color: #ff6e00;
+  font-weight: 700;
+}
+.main .prices hr {
+  width: 100%;
+}
+
+.discounts {
+  width: 100%;
+  margin-top: 4em;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.discounts__discount {
+  flex: 1 1 300px;
+  display: flex;
+  align-items: center;
+  padding: 2em 2em;
+  color: #fff;
+  border-left: 1px solid #333;
+}
+.discounts__discount__icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  aspect-ratio: 1/1;
+  background-color: #ff6e00;
+  border-radius: 50%;
+}
+.discounts__discount__icon i {
+  font-size: 3rem;
+}
+.discounts__discount p {
+  margin-left: 1em;
+  line-height: 1.4em;
+  font-size: 1.2rem;
+}
+.discounts__discount p .heading {
+  display: block;
+  margin-bottom: 0.4em;
+  font-size: 1.6rem;
+  color: #ff6e00;
+}
+.discounts__discount p .pln {
+  color: #ff6e00;
 }
 
 .footer {
@@ -486,7 +561,7 @@ body {
   .nav .nav--active,
   .nav .nav-mobile--active {
     transform: translateX(0);
-    background-color: rgba(12, 12, 17, 0.9);
+    background-color: rgba(24, 24, 29, 0.9);
     -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
   }

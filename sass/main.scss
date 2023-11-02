@@ -13,6 +13,7 @@ body {
 //uniwersalna klasa którą można nadać na elementy by ograniczyć ich szerokość do max 1200px. Co zapobiega słabemu wyświetlaniu się zawartości na monitorach o wysokiej rozdzielczość i monitorach ultra wide
 .wrapper {
 	margin: 0 auto;
+	padding: 0 6em;
 	width: 100%;
 	max-width: 1400px;
 }
@@ -165,10 +166,19 @@ body {
 			// naglowek kazdej sekcji, byc moze w przyszlosci usuniemy i kazda sekcja bedzie miala swoj wlasny uniwersalny naglowek dostosowany do zawartosci sekcji
 			display: flex;
 			justify-content: center;
+			margin: 0 2em;
 			margin-bottom: 2em; // odsuwam dolna krawedz naglowka od dalszej zawartosci sekcji
+			
 			font-size: 3rem;
 			text-transform: uppercase;
 			color: $main-color;
+			&--faq {
+				margin-bottom: 1em;
+			}
+			&--description{
+				font-size: 2.2rem;
+				color: #fff;
+			}
 		}
 	}
 
@@ -191,7 +201,6 @@ body {
 			&__cards {
 				// GRIDD CELL, pojedyncza komórka grida
 				perspective: 900px; // nadaje perspektywe na kazdą z komórek by móc obracac dziećmi "__cards"
-				cursor: pointer;
 			}
 		}
 	}
@@ -347,6 +356,44 @@ body {
 		&:hover::after {
 			rotate: x calc(20deg * -1);
 		}
+
+		&__btn {
+			opacity: 0;
+			position: absolute;
+			background-color: none;
+			// height: 40px;
+			padding: 15px 20px;
+			margin: 20px;
+			border: none;
+			border-radius: 3px;
+			z-index: 10;
+			cursor: pointer;
+			text-transform: capitalize;
+			font-size: 1.2rem;
+			font-family: 'Comfortaa', sans-serif;
+			font-weight: 700;
+			transition: background 0.3s, opacity 0.5s;
+
+			&--read {
+				bottom: 60px;
+				&:hover {
+					background-color: #a1a1a1;
+				}
+			}
+
+			&--book {
+				bottom: 0px;
+				background-color: $main-color;
+				color: #fff;
+				&:hover {
+					background-color: #cf5a01;
+				}
+			}
+		}
+
+		&:hover .card__btn {
+			opacity: 1;
+		}
 	}
 
 	//-------------------------------------
@@ -356,67 +403,43 @@ body {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		flex-direction: column;
+		flex-direction: row;
+		flex-wrap: wrap;
 
-		&__questions {
+		&__thread {
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			flex-direction: column;
-			width: 100%;
-			margin: 2rem 3em;
-			gap: 1rem;
-
-			&--answer {
-				display: none;
-				animation: showAnswer 0.5s ease-in;
-			}
-
-			&--answer.active {
+			padding: 2em;
+			margin: 1em;
+			width: 200px;
+			text-align: center;
+			color: #fff;
+			font-size: 2rem;
+			aspect-ratio: 1/1;
+			border: 1px solid $secondary-color;
+			border-radius: 10px;
+			cursor: pointer;
+			transition: background .3s, scale 1s;
+			span {
 				color: $main-color;
-				font-size: 1.5rem;
-				margin: 1rem;
-				width: 50%;
-				padding: 10px;
-				background-color: $pure-white;
-				border: 1px solid $pure-white;
-				border-radius: 0.5em;
-				padding: 1em;
-				margin: 5px;
-				display: block;
 			}
 
-			&--question {
-				display: flex;
-				justify-content: space-between;
-				align-items: center;
-				font-size: 1.5rem;
-				margin: 1rem;
-				width: 50%;
-				padding: 10px;
-				background-color: $pure-white;
-				border: 1px solid $pure-white;
-				border-radius: 0.5em;
-				padding: 1em;
-				margin: 5px;
-				transition: background-color 0.3s;
-				cursor: pointer;
-
-				.fa-solid {
-					margin-left: 10px;
-					color: $main-color;
-					transition: transform 0.3s ease;
-				}
-			}
-
-			&--question:hover {
-				background-color: $darker-white;
+			&:hover {
+				background-color: $secondary-color;
+				scale: 1.1;
 			}
 		}
 	}
+
+
+	//-------------------------------------
+	// PRICES
+	//-------------------------------------
 	.prices {
 		display: flex;
-		justify-content: center;
+		flex-direction: column;
+		// justify-content: center;
 		align-items: center;
 		&__boxes {
 			display: grid;
@@ -440,7 +463,7 @@ body {
 				}
 				&--middle {
 					background-color: $secondary-color;
-					padding: 0 3em;
+					padding: 3em 3em;
 					color: #fff;
 					text-align: center;
 					.price-day {
@@ -449,17 +472,21 @@ body {
 						text-decoration: underline;
 					}
 					.price-value {
-						font-size: 3rem;
+						font-size: 1.6rem;
 						padding-bottom: 1em;
+						span {
+							font-size: 3rem;
+							color: $main-color;
+						}
 					}
 				}
 				&--bottom {
 					margin-top: 5px;
 					.book-btn {
-						padding: 1em;
+						padding: 1.4em 0;
 						width: 100%;
 						height: 100%;
-						font-size: 2rem;
+						font-size: 1.4rem;
 						color: #fff;
 						text-transform: uppercase;
 						background-color: $main-color;
@@ -469,16 +496,81 @@ body {
 						cursor: pointer;
 
 						p {
-							transition: 0.2s;
+							transition: background 0.3s, scale 0.3s;
+							font-family: 'Comfortaa', sans-serif;
 						}
 						&:hover {
 							background-color: #cf5a01;
+							box-shadow: #111;
 						}
 						&:hover p {
 							scale: 1.1;
 						}
 					}
 				}
+			}
+		}
+
+		&__extra-info {
+			padding: 4em 0em;
+			color: #fff;
+			font-size: 1.6rem;
+			span {
+				color: $main-color;
+				font-weight: 700;
+			}
+		}
+
+		hr {
+			width: 100%;
+		}
+	}
+}
+
+.discounts {
+	width: 100%;
+	margin-top: 4em;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	
+
+	&__discount {
+		flex: 1 1 300px;
+		display: flex;
+		align-items: center;
+
+		padding: 2em 2em;
+		color: #fff;
+
+		border-left: 1px solid #333;
+
+		&__icon {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 50px;
+			aspect-ratio: 1/1;
+			background-color: $main-color;
+			border-radius: 50%;
+			i {
+				font-size: 3rem;
+			}
+		}
+
+		p {
+			margin-left: 1em;
+			line-height: 1.4em;
+			font-size: 1.2rem;
+			.heading {
+				display: block;
+				margin-bottom: .4em;
+				font-size: 1.6rem;
+				color: $main-color;
+			}
+			.pln {
+				color: $main-color;
+				
 			}
 		}
 	}
