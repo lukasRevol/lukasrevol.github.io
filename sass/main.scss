@@ -37,6 +37,7 @@ body {
 		align-items: center;
 		&-logo {
 			width: 200px;
+
 			.logo-img {
 				width: 100%;
 				filter: invert(1);
@@ -581,7 +582,9 @@ body {
 	height: 50vh; // domyslnie stopka będzie dostosowywać się do zawartości, chwilowo 50vh dla lepszej widoczności
 	background-color: $main-color; // dla lepszej widocznosci tymczasowo pomarańczowa
 }
-
+.hidden {
+	display: none;
+}
 //-------------------------------------
 // MEDIA
 //-------------------------------------
