@@ -161,13 +161,13 @@ body {
   height: 100%;
 }
 .header__content--title {
-  font-size: 6rem;
-  color: #fff;
-  text-transform: uppercase;
+  width: 100%;
+  filter: invert(1);
 }
 .header__content--description {
   text-align: center;
   font-size: 2rem;
+  text-transform: uppercase;
   color: #fff;
 }
 
@@ -535,6 +535,9 @@ body {
   }
 }
 @media (min-width: 0px) and (max-width: 1201px) {
+  body {
+    max-width: 100vw;
+  }
   .nav {
     position: fixed;
     width: 100px;
@@ -549,7 +552,6 @@ body {
   .nav .hamburger {
     position: absolute;
     top: 5em;
-    right: 1em;
     z-index: 500;
     transform: translateY(-50%);
   }
@@ -634,5 +636,20 @@ body {
   .nav .nav__nav-items--link:hover::before,
   .nav .nav-mobile__nav-items--link:hover::before {
     width: 100%;
+  }
+  .header {
+    position: relative;
+    max-height: 20vh;
+    background: linear-gradient(308deg, rgba(0, 0, 0, 0.2) 0%, rgba(255, 213, 122, 0.2) 100%), url(../img/eleonora-mobile.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+  .header__content--description {
+    font-size: 1rem;
+    padding-top: 0.5em;
+  }
+  .header__content--title {
+    width: 80%;
   }
 }/*# sourceMappingURL=main.css.map */
