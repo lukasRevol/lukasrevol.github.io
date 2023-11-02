@@ -1,0 +1,99 @@
+@media (min-width: 375px) and (max-width: 1201px) {
+	.nav {
+		background-color: transparent;
+		backdrop-filter: blur(0);
+		.nav-desktop {
+			display: none;
+		}
+
+		.hamburger {
+			position: absolute;
+			top: 3em;
+			right: 1em;
+			z-index: 500;
+			transform: translateY(-50%);
+			&-inner,
+			&-inner::before,
+			&-inner::after {
+				background-color: $pure-white;
+				z-index: 500;
+			}
+		}
+		.nav,
+		.nav-mobile {
+			width: 100vw;
+			height: 100vh;
+
+			transition: transform 0.3s;
+			transform: translateX(-103%);
+			z-index: 10;
+
+			&--active {
+				transform: translateX(0);
+				background-color: rgba($color: $bg-color-dark, $alpha: 0.9);
+				backdrop-filter: blur(10px);
+			}
+
+			&__nav {
+                
+				justify-content: center;
+				align-items: center;
+				flex-direction: column;
+				height: 100%;
+				width: 100%;
+				overflow: hidden;
+				&-logo {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					.logo-img {
+						margin-bottom: 2em;
+					}
+				}
+				&-items {
+					display: flex;
+					flex-direction: column;
+					justify-content: center;
+					align-items: center;
+					margin-top: 2em;
+					&--link {
+						position: relative;
+						font-size: 1.4rem;
+						padding: 2em;
+						font-weight: 700;
+						text-transform: uppercase;
+						text-decoration: none;
+						background-image: linear-gradient(
+							to right,
+							$main-color,
+							$main-color 50%,
+							$pure-white 50%
+						);
+						background-size: 200% 100%;
+						background-position: -100%;
+						background-clip: text;
+						color: transparent;
+						transition: all 0.3s ease-in-out;
+						&:before {
+							content: '';
+							background: $main-color;
+							display: block;
+							position: absolute;
+							bottom: 0px;
+							left: 0;
+							width: 0;
+							height: 3px;
+							transition: all 0.3s ease-in-out;
+						}
+						&:hover {
+							background-position: 0;
+						}
+						&:hover::before {
+							width: 100%;
+						}
+					}
+				}
+			}
+		}
+	}
+}
