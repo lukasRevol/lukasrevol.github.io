@@ -508,6 +508,10 @@ body {
   background-color: #ff6e00;
 }
 
+.hidden {
+  display: none;
+}
+
 @media (min-width: 768px) {
   .main .rooms__container {
     grid-template-columns: repeat(2, 300px);
