@@ -581,6 +581,34 @@ body {
 .footer {
 	height: 50vh; // domyslnie stopka będzie dostosowywać się do zawartości, chwilowo 50vh dla lepszej widoczności
 	background-color: $main-color; // dla lepszej widocznosci tymczasowo pomarańczowa
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	align-items: center; 
+	&__top {
+		display: flex;
+		align-items: center;
+		background-color: $pure-white;
+		width: 50%;
+		border-radius: 8px;
+		&--circle {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-color: $main-color;
+			border-radius: 50%;
+			height: 50%;
+			width: 50%;
+			
+		}
+	}
+	&__bottom {
+		background-color: $pure-white;
+		width: 100%;
+font-weight: bold;
+font-size: 1.2rem;
+text-align: center;
+	}
 }
 .hidden {
 	display: none;
