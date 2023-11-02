@@ -1,4 +1,4 @@
-@media (min-width: 375px) and (max-width: 1201px) {
+@media (min-width: 0px) and (max-width: 1201px) {
 	.nav {
 		background-color: transparent;
 		backdrop-filter: blur(0);
@@ -23,11 +23,9 @@
 		.nav-mobile {
 			width: 100vw;
 			height: 100vh;
-
 			transition: transform 0.3s;
 			transform: translateX(-103%);
 			z-index: 10;
-
 			&--active {
 				transform: translateX(0);
 				background-color: rgba($color: $bg-color-dark, $alpha: 0.9);
@@ -35,7 +33,6 @@
 			}
 
 			&__nav {
-                
 				justify-content: center;
 				align-items: center;
 				flex-direction: column;
@@ -96,4 +93,5 @@
 			}
 		}
 	}
+	
 }

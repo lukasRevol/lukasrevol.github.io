@@ -168,14 +168,14 @@ body {
 			justify-content: center;
 			margin: 0 2em;
 			margin-bottom: 2em; // odsuwam dolna krawedz naglowka od dalszej zawartosci sekcji
-			
+
 			font-size: 3rem;
 			text-transform: uppercase;
 			color: $main-color;
 			&--faq {
 				margin-bottom: 1em;
 			}
-			&--description{
+			&--description {
 				font-size: 2.2rem;
 				color: #fff;
 			}
@@ -420,7 +420,7 @@ body {
 			border: 1px solid $secondary-color;
 			border-radius: 10px;
 			cursor: pointer;
-			transition: background .3s, scale 1s;
+			transition: background 0.3s, scale 1s;
 			span {
 				color: $main-color;
 			}
@@ -431,7 +431,6 @@ body {
 			}
 		}
 	}
-
 
 	//-------------------------------------
 	// PRICES
@@ -533,7 +532,6 @@ body {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	
 
 	&__discount {
 		flex: 1 1 300px;
@@ -564,13 +562,12 @@ body {
 			font-size: 1.2rem;
 			.heading {
 				display: block;
-				margin-bottom: .4em;
+				margin-bottom: 0.4em;
 				font-size: 1.6rem;
 				color: $main-color;
 			}
 			.pln {
 				color: $main-color;
-				
 			}
 		}
 	}
