@@ -536,6 +536,9 @@ body {
 }
 @media (min-width: 0px) and (max-width: 1201px) {
   .nav {
+    position: fixed;
+    width: 100px;
+    height: 100px;
     background-color: transparent;
     -webkit-backdrop-filter: blur(0);
             backdrop-filter: blur(0);
@@ -545,7 +548,7 @@ body {
   }
   .nav .hamburger {
     position: absolute;
-    top: 3em;
+    top: 5em;
     right: 1em;
     z-index: 500;
     transform: translateY(-50%);
