@@ -107,17 +107,67 @@
 				rgba(255, 213, 122, 0.2) 100%
 			),
 			url(../img/eleonora-mobile.jpg);
-			background-size: contain;
+		background-size: contain;
 		background-repeat: no-repeat;
 		background-attachment: fixed;
 		&__content {
 			&--description {
 				font-size: 1rem;
-				padding-top: .5em;
+				padding-top: 0.5em;
 			}
 			&--title {
 				width: 80%;
 			}
+		}
+	}
+	.footer {
+		background-color: $main-color;
+		display: grid;
+		grid-template-columns: repeat(1, 1fr);
+		grid-template-rows: repeat(4, 300px);
+		max-height: 70vh;
+
+		&__info-container {
+			height: clamp(400px, 150px, 400px);
+			align-items: center;
+			flex-wrap: wrap;
+			background-color: transparent;
+			padding: 1em;
+			margin: 2em 6em;
+			border-radius: 10px;
+
+			&--left,
+			&--middle,
+			&--right {
+				background-color: $pure-white;
+				width: 100%;
+				border-radius: 10px;
+				padding: 4em 4em;
+				margin: 3em 0;
+				grid-row: 1/2;
+				grid-column: 1/1;
+
+				.circle-icon {
+					margin-bottom: 14em;
+					padding: 2em;
+				}
+			}
+		}
+		&__photos-container {
+			flex-direction: column;
+			grid-row: 3/5;
+			grid-column: 1/1;
+			margin: 3em 0;
+
+			img,
+			iframe {
+				width: 100%;
+				padding: 1em 0;
+			}
+		}
+		&__year {
+			grid-row: 5/5;
+			grid-column: 1/1;
 		}
 	}
 }

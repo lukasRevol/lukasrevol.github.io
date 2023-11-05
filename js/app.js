@@ -4,6 +4,8 @@ const links = document.querySelectorAll('.nav__nav-items--link');
 //pobrane elementy do sterowania nawigacją
 const dekstopNav = document.querySelector('.nav-desktop');
 const scrollPoint = 600;
+//pobrane elementy do stopki
+const currentYear = document.querySelector('.footer__current-year');
 
 burgerIcon.addEventListener('click', () => {
 	mobileNav.classList.toggle('nav-mobile--active');
@@ -32,3 +34,10 @@ const changeNavOnScroll = () => {
 };
 window.addEventListener('scroll', changeNavOnScroll);
 // funkcja zmieniająca kolor nav po scrollu
+
+const handleCurrentYear = () => {
+	const year = new Date().getFullYear();
+	currentYear.innerText = year;
+};
+handleCurrentYear();
+// funkcja aktualizująca rok na stopce strony
