@@ -1,5 +1,11 @@
 @media (min-width: 0px) and (max-width: 1201px) {
+	body {
+		max-width: 100vw;
+	}
 	.nav {
+		position: fixed;
+		width: 100px;
+		height: 100px;
 		background-color: transparent;
 		backdrop-filter: blur(0);
 		.nav-desktop {
@@ -8,8 +14,7 @@
 
 		.hamburger {
 			position: absolute;
-			top: 3em;
-			right: 1em;
+			top: 5em;
 			z-index: 500;
 			transform: translateY(-50%);
 			&-inner,
@@ -93,5 +98,26 @@
 			}
 		}
 	}
-	
+	.header {
+		position: relative;
+		max-height: 20vh;
+		background: linear-gradient(
+				308deg,
+				rgba(0, 0, 0, 0.2) 0%,
+				rgba(255, 213, 122, 0.2) 100%
+			),
+			url(../img/eleonora-mobile.jpg);
+			background-size: contain;
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		&__content {
+			&--description {
+				font-size: 1rem;
+				padding-top: .5em;
+			}
+			&--title {
+				width: 80%;
+			}
+		}
+	}
 }

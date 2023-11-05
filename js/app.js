@@ -12,6 +12,8 @@ burgerIcon.addEventListener('click', () => {
 });
 const handleLinks = (event) => {
 	mobileNav.classList.remove('nav-mobile--active');
+	burgerIcon.classList.remove('is-active');
+	document.body.classList.remove('sticky-body');
 };
 
 links.forEach((link) => {
@@ -20,7 +22,6 @@ links.forEach((link) => {
 // funkcja wyłaniająca nav i zamykająca po wybraniu sekcji
 
 const changeNavOnScroll = () => {
-	console.log('Funkcja changeNavOnScroll działa.'); // Dodaj tę linię
 	if (window.scrollY > scrollPoint) {
 		dekstopNav.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
 		dekstopNav.style.boxShadow = '0px 5px 5px rgba(0, 0, 0, 0.2)';
